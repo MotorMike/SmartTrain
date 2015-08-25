@@ -28,7 +28,8 @@
                 android:layout_weight="1"
                 android:background="#4CAF50"
                 android:textColor="#FAFAFA"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:onClick="createButtonOnClick" />
 
             <Button
                 android:layout_width="match_parent"
@@ -39,7 +40,8 @@
                 android:layout_weight="1"
                 android:textColor="#4CAF50"
                 android:background="#FAFAFA"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:onClick="trackButtonOnClick" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,7 +60,8 @@
                 android:layout_weight="1"
                 android:textColor="#4CAF50"
                 android:background="#FAFAFA"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:onClick="progressButtonOnClick" />
 
             <Button
                 android:layout_width="match_parent"
@@ -68,7 +71,8 @@
                 android:layout_weight="1"
                 android:background="#4CAF50"
                 android:textColor="#FAFAFA"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:onClick="profileButtonOnClick" />
         </LinearLayout>
     </LinearLayout>
 
@@ -81,5 +85,6 @@
         android:layout_centerVertical="true"
         android:background="@drawable/my_button"
         android:textColor="#FAFAFA"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:onClick="todayButtonOnClick" />
 </RelativeLayout>

@@ -1,9 +1,12 @@
 package com.example.smarttrain.smarttrain;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,4 +37,35 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    public void createButtonOnClick(View view) {
+        Intent intent = new Intent(this, CreateActivity.class);
+        startActivity(intent);
+    }
+
+    public void trackButtonOnClick(View view) {
+        Intent intent = new Intent(this, TrackActivity.class);
+        startActivity(intent);
+    }
+
+    public void progressButtonOnClick(View view) {
+        Intent intent = new Intent(this, ProgressActivity.class);
+        startActivity(intent);
+    }
+
+    public void profileButtonOnClick(View view) {
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    public void todayButtonOnClick(View view) {
+        //Intent intent = new Intent(this,ProfileActivity.class);
+        //startActivity(intent);
+        CharSequence text = "Button not implemented";
+        Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
+
+    }
+
+
 }
