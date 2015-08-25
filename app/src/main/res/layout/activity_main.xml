@@ -26,8 +26,10 @@
                 android:layout_weight="1"
                 android:background="#66BB6A"
                 android:textColor="#FAFAFA"
-                android:textSize="24dp"
-                android:onClick="createButtonOnClick" />
+                android:textSize="34sp"
+                android:onClick="createButtonOnClick"
+                android:fontFamily="roboto"
+                android:textAllCaps="false"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -38,8 +40,10 @@
                 android:layout_weight="1"
                 android:textColor="#66BB6A"
                 android:background="#FAFAFA"
-                android:textSize="24dp"
-                android:onClick="trackButtonOnClick" />
+                android:textSize="34sp"
+                android:onClick="trackButtonOnClick"
+                android:fontFamily="roboto"
+                android:textAllCaps="false" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,8 +62,10 @@
                 android:layout_weight="1"
                 android:textColor="#66BB6A"
                 android:background="#FAFAFA"
-                android:textSize="24dp"
-                android:onClick="progressButtonOnClick" />
+                android:textSize="34sp"
+                android:onClick="progressButtonOnClick"
+                android:fontFamily="roboto"
+                android:textAllCaps="false"/>
 
             <Button
                 android:layout_width="match_parent"
@@ -69,8 +75,10 @@
                 android:layout_weight="1"
                 android:background="#66BB6A"
                 android:textColor="#FAFAFA"
-                android:textSize="24dp"
-                android:onClick="profileButtonOnClick" />
+                android:textSize="34sp"
+                android:onClick="profileButtonOnClick"
+                android:fontFamily="roboto"
+                android:textAllCaps="false"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -83,10 +91,12 @@
         android:layout_centerVertical="true"
         android:background="@drawable/my_button"
         android:textColor="#FAFAFA"
-        android:textSize="24dp"
-        android:onClick="todayButtonOnClick" />
+        android:textSize="34sp"
+        android:onClick="todayButtonOnClick"
+        android:fontFamily="roboto"
+        android:textAllCaps="false" />
 
 
 
-        
+
 </RelativeLayout>
