@@ -87,4 +87,15 @@
         android:textColor="#FAFAFA"
         android:textSize="24dp"
         android:onClick="todayButtonOnClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+        />
+
+        
 </RelativeLayout>
