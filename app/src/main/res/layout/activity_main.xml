@@ -7,96 +7,43 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1">
+            android:text="Today&apos;s Workout"
+            android:id="@+id/button"
+            android:layout_weight="4" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Create"
-                android:id="@+id/button3"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-                android:background="#66BB6A"
-                android:textColor="#FAFAFA"
-                android:textSize="34sp"
-                android:onClick="createButtonOnClick"
-                android:fontFamily="roboto"
-                android:textAllCaps="false"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Track"
-                android:id="@+id/button4"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-                android:textColor="#66BB6A"
-                android:background="#FAFAFA"
-                android:textSize="34sp"
-                android:onClick="trackButtonOnClick"
-                android:fontFamily="roboto"
-                android:textAllCaps="false" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
+        <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="1">
+            android:text="Create"
+            android:id="@+id/button2"
+            android:layout_weight="1" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Progress"
-                android:id="@+id/button"
-                android:layout_weight="1"
-                android:textColor="#66BB6A"
-                android:background="#FAFAFA"
-                android:textSize="34sp"
-                android:onClick="progressButtonOnClick"
-                android:fontFamily="roboto"
-                android:textAllCaps="false"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Track"
+            android:id="@+id/button3"
+            android:layout_weight="1" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Profile"
-                android:id="@+id/button2"
-                android:layout_weight="1"
-                android:background="#66BB6A"
-                android:textColor="#FAFAFA"
-                android:textSize="34sp"
-                android:onClick="profileButtonOnClick"
-                android:fontFamily="roboto"
-                android:textAllCaps="false"/>
-        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Progress"
+            android:id="@+id/button4"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:id="@+id/button5"
+            android:layout_weight="1" />
     </LinearLayout>
-
-    <Button
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:text="Today&apos;s Workout"
-        android:id="@+id/button5"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/my_button"
-        android:textColor="#FAFAFA"
-        android:textSize="34sp"
-        android:onClick="todayButtonOnClick"
-        android:fontFamily="roboto"
-        android:textAllCaps="false" />
-
-
-
-
 </RelativeLayout>
