@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void todayButtonOnClick(View view) {
         //Intent intent = new Intent(this,ProfileActivity.class);
+    public void todayButtonOnClick(View view) {
         //startActivity(intent);
         CharSequence text = "Button not implemented";
         Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();
