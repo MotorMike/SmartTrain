@@ -1,49 +1,150 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_weight="1">
 
-        <Button
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Today&apos;s Workout"
-            android:id="@+id/button"
-            android:layout_weight="4" />
+            android:layout_height="match_parent"
+            android:text="Today"
+            android:id="@+id/textView"
+            android:layout_weight="1"
+            android:textSize="45sp"
+            android:background="#81C784"
+            android:gravity="center_vertical"
+            android:textColor="#FAFAFA"
+            android:paddingLeft="40px" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Create"
-            android:id="@+id/button2"
-            android:layout_weight="1" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Track"
-            android:id="@+id/button3"
-            android:layout_weight="1" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Progress"
-            android:id="@+id/button4"
-            android:layout_weight="1" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Profile"
-            android:id="@+id/button5"
-            android:layout_weight="1" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton"
+            android:src="@drawable/today"
+            android:background="#81C784"
+            android:paddingLeft="40px"
+            android:paddingRight="40px" />
     </LinearLayout>
-</RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Create"
+            android:id="@+id/textView2"
+            android:layout_weight="1"
+            android:textSize="45sp"
+            android:background="#FAFAFA"
+            android:gravity="center_vertical"
+            android:textColor="#81C784"
+            android:paddingLeft="40px" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton2"
+            android:src="@drawable/create"
+            android:background="#FAFAFA"
+            android:paddingLeft="40px"
+            android:paddingRight="40px"
+            android:tint="#81C784" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Track"
+            android:id="@+id/textView3"
+            android:layout_weight="1"
+            android:textSize="45sp"
+            android:background="#81C784"
+            android:gravity="center_vertical"
+            android:textColor="#FAFAFA"
+            android:paddingLeft="40px" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton3"
+            android:src="@drawable/track"
+            android:background="#81C784"
+            android:paddingLeft="40px"
+            android:paddingRight="40px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Progress"
+            android:id="@+id/textView4"
+            android:layout_weight="1"
+            android:textSize="45sp"
+            android:background="#FAFAFA"
+            android:gravity="center_vertical"
+            android:textColor="#81C784"
+            android:paddingLeft="40px" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton4"
+            android:src="@drawable/progress"
+            android:background="#FAFAFA"
+            android:paddingLeft="40px"
+            android:paddingRight="40px"
+            android:tint="#81C784" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Profile"
+            android:id="@+id/textView5"
+            android:layout_weight="1"
+            android:textSize="45sp"
+            android:background="#81C784"
+            android:gravity="center_vertical"
+            android:textColor="#FAFAFA"
+            android:paddingLeft="40px" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imageButton5"
+            android:src="@drawable/profile"
+            android:background="#81C784"
+            android:paddingLeft="40px"
+            android:paddingRight="40px" />
+    </LinearLayout>
+</LinearLayout>
