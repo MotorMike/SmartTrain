@@ -11,7 +11,7 @@ public class ExerciseHelepertest {
         DBHelper dbHelper;
         Exercise exercise;
 
-        exercise = new Exercise("Push up","Hands and feet",5,3);
+        exercise = new Exercise("Push up","Hands and feet",5,"reps");
        // dbHelper = new DBHelper();
         //dbHelper.addExercise(exercise);
 
