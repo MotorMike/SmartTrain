@@ -7,20 +7,20 @@ public class Exercise {
     private String name;
     private String description;
     private int value;
-    private int unit;
+    private String unit;
 
     public Exercise(String name) {
         this.name = name;
     }
 
-    public Exercise( String name, String description, int unit ){
+    public Exercise( String name, String description, String unit ){
         this.name = name;
         this.description = description;
         this.unit = unit;
         this.value = 0;
     }
 
-    public Exercise( String name, String description, int value, int unit ){
+    public Exercise( String name, String description, int value, String unit ){
         this.name = name;
         this.description = description;
         this.value = value;
@@ -59,11 +59,11 @@ public class Exercise {
         value--;
     }
 
-    public int getUnit() {
+    public String getUnit() {
         return unit;
     }
 
-    public void setUnit(int unit) {
+    public void setUnit(String unit) {
         this.unit = unit;
     }
 }
