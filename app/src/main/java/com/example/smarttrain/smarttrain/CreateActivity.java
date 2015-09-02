@@ -1,9 +1,11 @@
 package com.example.smarttrain.smarttrain;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class CreateActivity extends AppCompatActivity {
 
@@ -33,5 +35,11 @@ public class CreateActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void exerciseButtonOnClick(View view){
+        Intent intentExercise = new Intent(getBaseContext(), CreateExercise.class);
+        startActivity(intentExercise);
+
     }
 }

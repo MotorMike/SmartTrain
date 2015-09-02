@@ -9,6 +9,10 @@ public class Exercise {
     private int value;
     private int unit;
 
+    public Exercise(String name) {
+        this.name = name;
+    }
+
     public Exercise( String name, String description, int unit ){
         this.name = name;
         this.description = description;

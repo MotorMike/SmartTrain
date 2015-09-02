@@ -8,4 +8,14 @@
     <string name="title_activity_progress">ProgressActivity</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_create_exercise">CreateExercise</string>
+
+    <string-array name="trackingTypes">
+        <item>Distance</item>
+        <item>Reparation</item>
+        <item>Time</item>
+        <item>Weight</item>
+    </string-array>
+
+
 </resources>
