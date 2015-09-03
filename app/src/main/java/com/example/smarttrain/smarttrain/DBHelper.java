@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 /**
  * Created by Mike on 27/08/2015.
+ * This class is to add in data persistence
  */
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -21,9 +22,8 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_E_ID = "_id";
     private static final String COLUMN_E_NAME = "_name";
     private static final String COLUMN_E_VALUE = "_value";
+    private static final String COLUMN_E_UNIT = "_unit";
     private static final String COLUMN_E_DESCRIPTION = "_description";
-
-
 
 
     public DBHelper(Context context) {
@@ -35,7 +35,6 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Exercise Table
@@ -43,6 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN_E_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_E_NAME + " TEXT, " +
                 COLUMN_E_VALUE + " INTEGER " +
+                COLUMN_E_UNIT + " INTEGER " +
                 COLUMN_E_DESCRIPTION + " TEXT " +
                 ");";
         db.execSQL(queryExercise);
@@ -54,15 +54,16 @@ public class DBHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COLUMN_E_NAME, exercise.getName());
         values.put(COLUMN_E_VALUE, exercise.getValue());
+        values.put(COLUMN_E_UNIT, exercise.getUnit());
         values.put(COLUMN_E_DESCRIPTION, exercise.getDescription());
 
-        SQLiteDatabase db = getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_EXERCISE, null, values);
         db.close();
     }
 
     //Delete an Exercise from the Exercise table
-    public void deleteExercise(String exerciseName){
+    public void deleteExercise(String exerciseName) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_EXERCISE + " WHERE " + COLUMN_E_NAME + "=\"" + exerciseName + "\";");
     }
@@ -76,7 +77,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // Returns all elements in exercise table as a "\n" separated string
-    public String exerciseNameTableToString(){
+    public String exerciseNameTableToString() {
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_EXERCISE + " WHERE 1";
