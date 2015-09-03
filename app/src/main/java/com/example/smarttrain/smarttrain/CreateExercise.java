@@ -22,7 +22,6 @@ public class CreateExercise extends AppCompatActivity {
 
         nameInputEditText = (EditText) findViewById(R.id.nameInputEditText) ;
         descriptionInputEditText = (EditText) findViewById(R.id.descriptionInputEditText);
-        trackingOptionsSpinner = (Spinner) findViewById(R.id.trackingOptionsSpinner);
 
     }
 

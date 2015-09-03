@@ -21,7 +21,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="40px"
             android:text="Today"
-            android:textColor="#FAFAFA"
+            android:textColor="#FFFFFF"
             android:textSize="34sp"
             android:onClick="todayButtonOnClick"
             android:clickable="true" />
@@ -34,7 +34,8 @@
             android:paddingLeft="40px"
             android:paddingRight="40px"
             android:src="@drawable/today"
-            android:onClick="todayButtonOnClick" />
+            android:onClick="todayButtonOnClick"
+            android:tint="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FAFAFA"
+            android:background="#FFFFFF"
             android:gravity="center_vertical"
             android:paddingLeft="40px"
             android:text="Create"
@@ -61,7 +62,7 @@
             android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="#FAFAFA"
+            android:background="#FFFFFF"
             android:paddingLeft="40px"
             android:paddingRight="40px"
             android:src="@drawable/create"
@@ -84,7 +85,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="40px"
             android:text="Track"
-            android:textColor="#FAFAFA"
+            android:textColor="#FFFFFF"
             android:textSize="34sp"
             android:onClick="trackButtonOnClick"
             android:clickable="true" />
@@ -97,7 +98,8 @@
             android:paddingLeft="40px"
             android:paddingRight="40px"
             android:src="@drawable/track"
-            android:onClick="trackButtonOnClick" />
+            android:onClick="trackButtonOnClick"
+            android:tint="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout
@@ -111,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#FAFAFA"
+            android:background="#FFFFFF"
             android:gravity="center_vertical"
             android:paddingLeft="40px"
             android:text="Progress"
@@ -124,7 +126,7 @@
             android:id="@+id/imageButton4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="#FAFAFA"
+            android:background="#FFFFFF"
             android:paddingLeft="40px"
             android:paddingRight="40px"
             android:src="@drawable/progress"
@@ -147,7 +149,7 @@
             android:gravity="center_vertical"
             android:paddingLeft="40px"
             android:text="Profile"
-            android:textColor="#FAFAFA"
+            android:textColor="#FFFFFF"
             android:textSize="34sp"
             android:onClick="profileButtonOnClick"
             android:clickable="true" />
@@ -160,6 +162,7 @@
             android:paddingLeft="40px"
             android:paddingRight="40px"
             android:src="@drawable/profile"
-            android:onClick="profileButtonOnClick" />
+            android:onClick="profileButtonOnClick"
+            android:tint="#FFFFFF" />
     </LinearLayout>
 </LinearLayout>
