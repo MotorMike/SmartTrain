@@ -23,11 +23,10 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="20dp"
-                android:hint="Exercise Name"
+                android:hint="Name"
                 android:inputType="text"
                 android:textColor="#81C784"
-                android:textColorHint="#81C784"
-                android:text="Name" />
+                android:textColorHint="#81C784" />
 
             <EditText
                 android:id="@+id/descriptionInputEditText"
@@ -37,6 +36,7 @@
                 android:layout_marginTop="20dp"
                 android:autoText="false"
                 android:hint="Short description about the exercise"
+                android:inputType="textMultiLine"
                 android:textColor="#81C784"
                 android:textColorHint="#81C784" />
 
@@ -61,20 +61,22 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText"
+                android:id="@+id/unitInputEditText"
                 android:layout_marginTop="20dp"
                 android:hint="e.g. reps, minutes"
+                android:inputType="text"
                 android:textColorHint="#81C784"
                 android:textColor="#81C784" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageButton12"
+                android:id="@+id/createExerciseButton"
                 android:layout_marginTop="50dp"
                 android:src="@drawable/tick"
                 android:layout_gravity="center_horizontal"
-                android:background="#81C784" />
+                android:background="#81C784"
+                android:onClick="newExerciseCreateButtonOnClick" />
 
         </LinearLayout>
 

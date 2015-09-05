@@ -12,7 +12,7 @@ public class CreateExercise extends AppCompatActivity {
 
     EditText nameInputEditText;
     EditText descriptionInputEditText;
-    Spinner trackingOptionsSpinner;
+    EditText unitInputEditText;
 
 
     @Override
@@ -20,8 +20,11 @@ public class CreateExercise extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_exercise);
 
+
         nameInputEditText = (EditText) findViewById(R.id.nameInputEditText) ;
         descriptionInputEditText = (EditText) findViewById(R.id.descriptionInputEditText);
+        unitInputEditText = (EditText) findViewById(R.id.unitInputEditText);
+
 
     }
 
@@ -48,25 +51,53 @@ public class CreateExercise extends AppCompatActivity {
     }
 
     public void newExerciseCreateButtonOnClick (View view){
-        //TODO input validation
-        String eName;
-        String eDescription;
-        String eTrackingOption;
 
-        eName = nameInputEditText.getText().toString();
-        eDescription = descriptionInputEditText.getText().toString();
-        eTrackingOption = trackingOptionsSpinner.getSelectedItem().toString();
+        String eName = nameInputEditText.getText().toString();
+        String eDescription = descriptionInputEditText.getText().toString();
+        String eUnit = unitInputEditText.getText().toString();
 
-        Exercise exercise = new Exercise(eName);
-        if(!eDescription.isEmpty()){exercise.setDescription(eDescription);}
-        DBHelper db = new DBHelper(this);
-        db.addExercise(exercise);
-
-
+        if (isValid(eName, eDescription, eUnit)) {
+            Exercise exercise = new Exercise(eName, eDescription, eUnit);
+            DBHelper db = new DBHelper(this);
+            db.addExercise(exercise);
+        }
 
         //When the exercise is built take user to exercise view
         //Intent intent = new Intent(this, viewExercise.class);
         //intent.putExtra(exerciseID,int id);
         //startActivity(intent);
+    }
+
+    private boolean isValid(String name, String description, String unit){
+        boolean isValid = true;
+
+        if (!isValidName(name)) {
+            nameInputEditText.setError("Invalid Name");
+            isValid = false;
+        }
+
+        if (!isValidDescription(description)) {
+            descriptionInputEditText.setError("Invalid Email");
+            isValid = false;
+        }
+
+        if (!isValidUnit(unit)) {
+            unitInputEditText.setError("Invalid Email");
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    private boolean isValidName(String name){
+        return true;
+    }
+
+    private boolean isValidDescription(String decription){
+        return true;
+    }
+
+    private boolean isValidUnit(String unit){
+        return true;
     }
 }
