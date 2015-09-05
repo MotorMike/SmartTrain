@@ -26,7 +26,8 @@
                 android:hint="Exercise Name"
                 android:inputType="text"
                 android:textColor="#81C784"
-                android:textColorHint="#81C784" />
+                android:textColorHint="#81C784"
+                android:text="Name" />
 
             <EditText
                 android:id="@+id/descriptionInputEditText"
@@ -35,7 +36,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="20dp"
                 android:autoText="false"
-                android:hint="Short discription about the exercise"
+                android:hint="Short description about the exercise"
                 android:textColor="#81C784"
                 android:textColorHint="#81C784" />
 
