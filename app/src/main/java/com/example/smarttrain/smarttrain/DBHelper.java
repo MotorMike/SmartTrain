@@ -43,7 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String queryExercise = "CREATE TABLE " + TABLE_EXERCISE + "(" +
                 COLUMN_E_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_E_NAME + " TEXT, " +
-                COLUMN_E_VALUE + " INTEGER " +
+                COLUMN_E_VALUE + " INTEGER, " +
                 COLUMN_E_UNIT + "TEXT, " +
                 COLUMN_E_DESCRIPTION + " TEXT " +
                 ");";
