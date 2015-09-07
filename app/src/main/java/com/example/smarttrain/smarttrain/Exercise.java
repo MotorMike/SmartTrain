@@ -8,6 +8,8 @@ public class Exercise {
     private String description;
     private int value;
     private String unit;
+    private String unit2;
+    private String unit3;
 
     public Exercise(String name) {
         this.name = name;
@@ -66,4 +68,12 @@ public class Exercise {
     public void setUnit(String unit) {
         this.unit = unit;
     }
+
+    public String getUnit2() {
+        return unit2;
+    }
+    public String getUnit3() {
+        return unit3;
+    }
+
 }
