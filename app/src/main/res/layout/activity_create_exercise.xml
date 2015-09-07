@@ -68,25 +68,6 @@
                 android:textColorHint="#81C784"
                 android:textColor="#81C784" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText"
-                android:hint="e.g. reps, minutes"
-                android:inputType="text"
-                android:textColorHint="#81C784"
-                android:textColor="#81C784"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/editText2"
-                android:layout_gravity="center_horizontal"
-                android:hint="e.g. reps, minutes"
-                android:inputType="text"
-                android:textColorHint="#81C784"
-                android:textColor="#81C784"/>
-
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

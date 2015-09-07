@@ -23,8 +23,6 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_E_NAME = "_name";
     private static final String COLUMN_E_VALUE = "_value";
     private static final String COLUMN_E_UNIT = "_unit";
-    private static final String COLUMN_E_UNIT2 = "_unit2";
-    private static final String COLUMN_E_UNIT3 = "_unit3";
     private static final String COLUMN_E_DESCRIPTION = "_description";
 
 
@@ -45,8 +43,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN_E_NAME + " TEXT, " +
                 COLUMN_E_VALUE + " INTEGER, " +
                 COLUMN_E_UNIT + "TEXT, " +
-                COLUMN_E_UNIT2 + "TEXT, " +
-                COLUMN_E_UNIT3 + "TEXT, " +
                 COLUMN_E_DESCRIPTION + " TEXT " +
                 ");";
         db.execSQL(queryExercise);
@@ -59,8 +55,6 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(COLUMN_E_NAME, exercise.getName());
         values.put(COLUMN_E_VALUE, exercise.getValue());
         values.put(COLUMN_E_UNIT, exercise.getUnit());
-        values.put(COLUMN_E_UNIT2, exercise.getUnit2());
-        values.put(COLUMN_E_UNIT3, exercise.getUnit3());
         values.put(COLUMN_E_DESCRIPTION, exercise.getDescription());
 
         SQLiteDatabase db = this.getWritableDatabase();
