@@ -72,17 +72,17 @@ public class CreateExercise extends AppCompatActivity {
         boolean isValid = true;
 
         if (!isValidName(name)) {
-            nameInputEditText.setError("Invalid Name");
+            nameInputEditText.setError("A name is required and must be at least 3 characters long.");
             isValid = false;
         }
 
         if (!isValidDescription(description)) {
-            descriptionInputEditText.setError("Invalid Email");
+            descriptionInputEditText.setError("A description cannot be more than 240 characters.");
             isValid = false;
         }
 
         if (!isValidUnit(unit)) {
-            unitInputEditText.setError("Invalid Email");
+            unitInputEditText.setError("Units must only contain one word.");
             isValid = false;
         }
 
@@ -90,14 +90,23 @@ public class CreateExercise extends AppCompatActivity {
     }
 
     private boolean isValidName(String name){
-        return true;
+        if (name != null && name.length() > 3) {
+            return true;
+        }
+        return false;
     }
 
-    private boolean isValidDescription(String decription){
-        return true;
+    private boolean isValidDescription(String description){
+        if (description.length() < 240) {
+            return true;
+        }
+        return false;
     }
 
     private boolean isValidUnit(String unit){
-        return true;
+        if (!unit.contains(" ")){
+            return true;
+        }
+        return false;
     }
 }

@@ -15,7 +15,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //DB
     private static final String DB_NAME = "smartTrain.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     //Table Exercise
     public static final String TABLE_EXERCISE = "EXERCISE";
