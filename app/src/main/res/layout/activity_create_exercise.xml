@@ -63,22 +63,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:id="@+id/radioGroup"
                 android:paddingLeft="20px">
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Distance"
-                    android:id="@+id/radioButton"
+                    android:id="@+id/distanceRadio"
                     android:checked="false"
                     android:textSize="20sp"
-                    android:textColor="#37474F" />
+                    android:textColor="#37474F"
+                    android:focusableInTouchMode="true"/>
 
                 <RadioButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Sets"
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/setsRadio"
                     android:checked="false"
                     android:textSize="20sp"
                     android:textColor="#37474F" />
@@ -87,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Time"
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/timeRadio"
                     android:checked="false"
                     android:textSize="20sp"
                     android:textColor="#37474F" />

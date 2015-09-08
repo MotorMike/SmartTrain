@@ -6,13 +6,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 public class CreateExercise extends AppCompatActivity {
 
     EditText nameInputEditText;
     EditText descriptionInputEditText;
-    EditText unitInputEditText;
+    RadioButton distanceRadio;
+    RadioButton setsRadio;
+    RadioButton timeRadio;
+    RadioGroup radioGroup;
 
 
     @Override
@@ -20,12 +25,12 @@ public class CreateExercise extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_exercise);
 
-
         nameInputEditText = (EditText) findViewById(R.id.nameInputEditText) ;
         descriptionInputEditText = (EditText) findViewById(R.id.descriptionInputEditText);
-
-
-
+        distanceRadio = (RadioButton) findViewById(R.id.distanceRadio);
+        setsRadio = (RadioButton) findViewById(R.id.setsRadio);
+        timeRadio = (RadioButton) findViewById(R.id.timeRadio);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
     }
 
     @Override
@@ -54,13 +59,26 @@ public class CreateExercise extends AppCompatActivity {
 
         String eName = nameInputEditText.getText().toString();
         String eDescription = descriptionInputEditText.getText().toString();
-        String eUnit = unitInputEditText.getText().toString();
 
-        /*if (isValid(eName, eDescription, eUnit)) {
-            Exercise exercise = new Exercise(eName, eDescription, eUnit);
-            DBHelper db = new DBHelper(this);
-            db.addExercise(exercise);
-        } */
+        if(isValid(eName, eDescription, radioGroup)){
+            if(distanceRadio.isChecked()){
+                String eUnit = "metres";
+                LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
+                DBHelper db = new DBHelper(this);
+                db.addExercise(exercise);
+            }
+            else if(timeRadio.isChecked()){
+                String eUnit = "seconds";
+                LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
+                DBHelper db = new DBHelper(this);
+                db.addExercise(exercise);
+            }
+            else if(setsRadio.isChecked()){
+                SetsExercise exercise = new SetsExercise(eName, eDescription);
+                DBHelper db = new DBHelper(this);
+                db.addExercise(exercise);
+            }
+        }
 
         //When the exercise is built take user to exercise view
         //Intent intent = new Intent(this, viewExercise.class);
@@ -68,7 +86,7 @@ public class CreateExercise extends AppCompatActivity {
         //startActivity(intent);
     }
 
-    private boolean isValid(String name, String description, String unit){
+    private boolean isValid(String name, String description, RadioGroup radioGroup){
         boolean isValid = true;
 
         if (!isValidName(name)) {
@@ -81,8 +99,8 @@ public class CreateExercise extends AppCompatActivity {
             isValid = false;
         }
 
-        if (!isValidUnit(unit)) {
-            unitInputEditText.setError("Units must only contain one word.");
+        if (!isValidRadio(radioGroup)) {
+            distanceRadio.setError("A tracking option must be selected.");
             isValid = false;
         }
 
@@ -103,10 +121,11 @@ public class CreateExercise extends AppCompatActivity {
         return false;
     }
 
-    private boolean isValidUnit(String unit){
-        if (!unit.contains(" ")){
+    private boolean isValidRadio(RadioGroup radioGroup){
+        if (!(radioGroup.getCheckedRadioButtonId() == -1)) {
             return true;
         }
         return false;
     }
+
 }
