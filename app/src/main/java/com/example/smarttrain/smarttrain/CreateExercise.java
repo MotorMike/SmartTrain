@@ -60,6 +60,10 @@ public class CreateExercise extends AppCompatActivity {
         String eName = nameInputEditText.getText().toString();
         String eDescription = descriptionInputEditText.getText().toString();
 
+        nameInputEditText.setError(null);
+        descriptionInputEditText.setError(null);
+        distanceRadio.setError(null);
+
         if(isValid(eName, eDescription, radioGroup)){
             if(distanceRadio.isChecked()){
                 String eUnit = "metres";
