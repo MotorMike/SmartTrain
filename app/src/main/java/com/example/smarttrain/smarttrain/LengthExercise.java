@@ -3,36 +3,36 @@ package com.example.smarttrain.smarttrain;
 /**
  * Created by kelseyhyde on 8/09/15.
  */
-public class TimeExercise extends Exercise {
-    double time;
+public class LengthExercise extends Exercise {
+    double length;
     String unit;
 
-    TimeExercise( String name, String description, String unit ){
+    LengthExercise(String name, String description, String unit){
         super(name, description);
         this.unit = unit;
-        this.time = 0.00;
+        this.length = 0.00;
     }
 
-    TimeExercise( String name, String description, String unit, double time ){
+    LengthExercise(String name, String description, String unit, double time){
         super(name, description);
         this.unit = unit;
-        this.time = time;
+        this.length = time;
     }
 
     public double getTime() {
-        return time;
+        return length;
     }
 
     public void setTime( double time ){
-        this.time = time;
+        this.length = time;
     }
 
     public void incrementTime(){
-        time++;
+        length++;
     }
 
     public void decrementTime(){
-        time--;
+        length--;
     }
 
     public String getUnit() {
