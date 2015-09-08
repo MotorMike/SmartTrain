@@ -23,7 +23,7 @@ public class CreateExercise extends AppCompatActivity {
 
         nameInputEditText = (EditText) findViewById(R.id.nameInputEditText) ;
         descriptionInputEditText = (EditText) findViewById(R.id.descriptionInputEditText);
-        unitInputEditText = (EditText) findViewById(R.id.unitInputEditText);
+
 
 
     }
@@ -56,11 +56,11 @@ public class CreateExercise extends AppCompatActivity {
         String eDescription = descriptionInputEditText.getText().toString();
         String eUnit = unitInputEditText.getText().toString();
 
-        if (isValid(eName, eDescription, eUnit)) {
+        /*if (isValid(eName, eDescription, eUnit)) {
             Exercise exercise = new Exercise(eName, eDescription, eUnit);
             DBHelper db = new DBHelper(this);
             db.addExercise(exercise);
-        }
+        } */
 
         //When the exercise is built take user to exercise view
         //Intent intent = new Intent(this, viewExercise.class);

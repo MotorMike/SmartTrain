@@ -53,8 +53,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void addExercise(Exercise exercise) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_E_NAME, exercise.getName());
-        values.put(COLUMN_E_VALUE, exercise.getValue());
-        values.put(COLUMN_E_UNIT, exercise.getUnit());
+        //values.put(COLUMN_E_VALUE, exercise.getValue());
+        //values.put(COLUMN_E_UNIT, exercise.getUnit());
         values.put(COLUMN_E_DESCRIPTION, exercise.getDescription());
 
         SQLiteDatabase db = this.getWritableDatabase();
