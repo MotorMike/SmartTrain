@@ -6,26 +6,18 @@ package com.example.smarttrain.smarttrain;
 public class Exercise {
     private String name;
     private String description;
-    private int value;
-    private String unit;
 
-    public Exercise(String name) {
-        this.name = name;
+
+    public Exercise(){
+        name = "";
+        description = "";
     }
 
-    public Exercise( String name, String description, String unit ){
-        this.name = name;
-        this.description = description;
-        this.unit = unit;
-        this.value = 0;
-    }
-
-    public Exercise( String name, String description, int value, String unit ){
+    public Exercise( String name, String description ){
         this.name = name;
         this.description = description;
-        this.value = value;
-        this.unit = unit;
     }
+
 
     public String getName(){
         return name;
@@ -42,31 +34,6 @@ public class Exercise {
     public void setDescription( String description ){
         this.description = description;
     }
-
-    public int getValue() {
-        return value;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-    public void incrementValue(){
-        value++;
-    }
-
-    public void decrementValue(){
-        value--;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
 
 
 }
