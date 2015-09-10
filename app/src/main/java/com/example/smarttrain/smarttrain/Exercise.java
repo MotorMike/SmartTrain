@@ -3,7 +3,7 @@ package com.example.smarttrain.smarttrain;
 /**
  * Created by kelseyhyde on 22/08/15.
  */
-public class Exercise {
+abstract public class Exercise {
     private String name;
     private String description;
 

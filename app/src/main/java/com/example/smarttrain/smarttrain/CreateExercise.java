@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 
 public class CreateExercise extends AppCompatActivity {
 
@@ -78,7 +77,7 @@ public class CreateExercise extends AppCompatActivity {
                 db.addExercise(exercise);
             }
             else if(setsRadio.isChecked()){
-                SetsExercise exercise = new SetsExercise(eName, eDescription);
+                RepetitionExercise exercise = new RepetitionExercise(eName, eDescription);
                 DBHelper db = new DBHelper(this);
                 db.addExercise(exercise);
             }
