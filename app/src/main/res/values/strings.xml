@@ -17,6 +17,8 @@
         <item>Weight</item>
     </string-array>
     <string name="title_activity_create_exercise_page2">CreateExercisePage2</string>
+    <string name="title_activity_list_view_type">ListViewType</string>
+    <string name="title_activity_list_view_length">ListViewLength</string>
 
 
 </resources>

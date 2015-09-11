@@ -40,6 +40,14 @@
             android:name=".CreateExercise"
             android:label="@string/title_activity_create_exercise" >
         </activity>
+        <activity
+            android:name=".ListViewType"
+            android:label="@string/title_activity_list_view_type" >
+        </activity>
+        <activity
+            android:name=".ListViewLength"
+            android:label="@string/title_activity_list_view_length" >
+        </activity>
     </application>
 
 </manifest>
