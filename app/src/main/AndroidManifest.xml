@@ -48,6 +48,10 @@
             android:name=".ListViewLength"
             android:label="@string/title_activity_list_view_length" >
         </activity>
+        <activity
+            android:name=".ViewRepetition"
+            android:label="@string/title_activity_view_repetition" >
+        </activity>
     </application>
 
 </manifest>

@@ -19,6 +19,7 @@
     <string name="title_activity_create_exercise_page2">CreateExercisePage2</string>
     <string name="title_activity_list_view_type">ListViewType</string>
     <string name="title_activity_list_view_length">ListViewLength</string>
+    <string name="title_activity_view_repetition">ViewRepetition</string>
 
 
 </resources>
