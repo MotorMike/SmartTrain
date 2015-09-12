@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class ListViewLength extends AppCompatActivity {
+public class ViewLength extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
