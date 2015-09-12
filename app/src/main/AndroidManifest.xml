@@ -40,6 +40,10 @@
             android:name=".CreateExercise"
             android:label="@string/title_activity_create_exercise" >
         </activity>
+        <activity
+            android:name=".TrackExerciseLengthView"
+            android:label="@string/title_activity_track_exercise_length_view" >
+        </activity>
     </application>
 
 </manifest>
