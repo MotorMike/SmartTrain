@@ -6,12 +6,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class TrackExerciseLengthView extends AppCompatActivity {
 
     Exercise exercise;
     LengthExercise lengthExercise;
+    //TODO Cancel button, Round edges on boxes, centering for vaule input, space between two lines
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +48,17 @@ public class TrackExerciseLengthView extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void confirmButtonOnClick(View view) {
 
+    public void confirmButtonOnClick(View view) {
+        //TODO take info and save
+        EditText inputEditText = (EditText)findViewById(R.id.inputEditText);
+        //TODO input validation
+        //lengthExercise.track(inputEditText.getText(), DateStamp);
+
+        CharSequence text = "Exercise Tracked";
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+
+        //TODO Return to last page
     }
 
 
@@ -63,7 +76,6 @@ public class TrackExerciseLengthView extends AppCompatActivity {
         TextView exerciseNameTextView = (TextView) findViewById(R.id.exerciseNameTextView);
         TextView textDescriptionTextView = (TextView) findViewById(R.id.textDescriptionTextView);
 
-
         unitTextView.setText(lengthExercise.getUnit());
         unitsTextView2.setText(lengthExercise.getUnit());
         exerciseNameTextView.setText(lengthExercise.getName());
@@ -72,7 +84,7 @@ public class TrackExerciseLengthView extends AppCompatActivity {
     }
 
     public void displayExerciseTest() {
-        lengthExercise = new LengthExercise("Run", "One leg infont of another", "Kilometers");
+        lengthExercise = new LengthExercise("Run", "One leg infront of the other", "Kilometers");
         displayExercise();
 
     }

@@ -44,6 +44,10 @@
             android:name=".TrackExerciseLengthView"
             android:label="@string/title_activity_track_exercise_length_view" >
         </activity>
+        <activity
+            android:name=".TrackExerciseSets"
+            android:label="@string/title_activity_track_exercise_sets" >
+        </activity>
     </application>
 
 </manifest>
