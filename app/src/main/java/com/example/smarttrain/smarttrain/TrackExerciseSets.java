@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class TrackExerciseSets extends AppCompatActivity {
 
@@ -11,6 +13,7 @@ public class TrackExerciseSets extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_exercise_sets);
+        settingUp();
     }
 
     @Override
@@ -34,4 +37,16 @@ public class TrackExerciseSets extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void settingUp(){
+
+        String[] homeItems = {"1", "2", "3", "5", "6", "7", "8", "9"};
+        ListAdapter setsViewAdapter = new CustomSetViewAdapter(this, homeItems);
+        ListView setsListView = (ListView) findViewById(R.id.setsListView);
+        setsListView.setAdapter(setsViewAdapter);
+
+    }
+
+
+
 }
