@@ -1,7 +1,7 @@
 package com.example.smarttrain.smarttrain;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListAdapter;
@@ -40,12 +40,30 @@ public class TrackExerciseSets extends AppCompatActivity {
 
     public void settingUp(){
 
-        String[] homeItems = {"1", "2", "3", "5", "6", "7", "8", "9"};
-        ListAdapter setsViewAdapter = new CustomSetViewAdapter(this, homeItems);
+        String[] Test = {"Set 1", "Set 2", "Set 3", "Set 5", "Set 6", "Set 7", "Set 8", "Set 9"};
+        ListAdapter setsViewAdapter = new CustomSetViewAdapter(this, Test);
         ListView setsListView = (ListView) findViewById(R.id.setsListView);
         setsListView.setAdapter(setsViewAdapter);
 
+        RepetitionExercise re = new RepetitionExercise("Push ups","Push the earth down");
+        re.addSet(20,40);
+        re.addSet(30,30);
+
+
+
+
     }
+
+    public void loadSets(RepetitionExercise re){
+        /*ListAdapter setsViewAdapter = new CustomSetViewAdapter(this, re);
+        ListView setsListView = (ListView) findViewById(R.id.setsListView);
+        setsListView.setAdapter(setsViewAdapter);
+        */
+
+
+    }
+
+
 
 
 

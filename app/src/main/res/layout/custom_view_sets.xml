@@ -4,83 +4,117 @@
     android:layout_height="match_parent">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="#"
-        android:id="@+id/setNumbertextView"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Actual Reps"
-        android:id="@+id/actualRepsTextView"
-        android:layout_alignBottom="@+id/repInputEditText"
-        android:layout_toStartOf="@+id/repInputEditText"
-        android:layout_marginEnd="25dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Actual Weight"
-        android:id="@+id/actualWeightTextView"
-        android:layout_alignTop="@+id/targetWeightTextView"
-        android:layout_alignEnd="@+id/actualRepsTextView" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="#"
+                android:id="@+id/setNumbertextView"
+                android:layout_weight="1" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Target Reps"
-        android:id="@+id/targetRepsTextView"
-        android:layout_alignBottom="@+id/setNumbertextView"
-        android:layout_toEndOf="@+id/setNumbertextView" />
+        </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Target Weight"
-        android:id="@+id/targetWeightTextView"
-        android:layout_below="@+id/targetRepsTextView"
-        android:layout_toEndOf="@+id/setNumbertextView" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#81C784">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/repInputEditText"
-        android:layout_weight="1"
-        android:layout_above="@+id/actualWeightTextView"
-        android:layout_alignParentEnd="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Planned Reps"
+                android:id="@+id/targetRepsTextView"
+                android:layout_alignBottom="@+id/setNumbertextView"
+                android:layout_toEndOf="@+id/setNumbertextView"
+                android:layout_weight="1" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/weightInputEditText"
-        android:layout_alignTop="@+id/actualRepsTextView"
-        android:layout_alignEnd="@+id/repInputEditText" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="10"
+                android:id="@+id/targetRepsNumberTextView"
+                android:layout_above="@+id/targetWeightNumberTextView"
+                android:layout_alignStart="@+id/targetWeightNumberTextView"
+                android:layout_weight="1" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="10"
-        android:id="@+id/targetRepsNumberTextView"
-        android:layout_above="@+id/targetWeightNumberTextView"
-        android:layout_alignStart="@+id/targetWeightNumberTextView" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Actual Reps"
+                android:id="@+id/actualRepsTextView"
+                android:layout_alignBottom="@+id/repInputEditText"
+                android:layout_toStartOf="@+id/repInputEditText"
+                android:layout_weight="1" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="00"
-        android:id="@+id/targetWeightNumberTextView"
-        android:layout_alignTop="@+id/targetWeightTextView"
-        android:layout_toEndOf="@+id/targetWeightTextView"
-        android:layout_marginStart="37dp" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/repInputEditText"
+                android:layout_weight="1"
+                android:layout_above="@+id/actualWeightTextView"
+                android:layout_alignParentEnd="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#81C784">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Planned Weight"
+                android:id="@+id/targetWeightTextView"
+                android:layout_below="@+id/targetRepsTextView"
+                android:layout_toEndOf="@+id/setNumbertextView"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="10"
+                android:id="@+id/targetWeightNumberTextView"
+                android:layout_alignTop="@+id/targetWeightTextView"
+                android:layout_toEndOf="@+id/targetWeightTextView"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Actual Weight"
+                android:id="@+id/actualWeightTextView"
+                android:layout_alignTop="@+id/targetWeightTextView"
+                android:layout_alignEnd="@+id/actualRepsTextView"
+                android:layout_weight="1" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/weightInputEditText"
+                android:layout_alignTop="@+id/actualRepsTextView"
+                android:layout_alignEnd="@+id/repInputEditText"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
