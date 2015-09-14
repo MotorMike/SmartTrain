@@ -1,7 +1,6 @@
 package com.example.smarttrain.smarttrain;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  * Created by kelseyhyde on 8/09/15.
@@ -21,11 +20,17 @@ public class RepetitionExercise extends Exercise {
         placeCounter++;
     }
 
+    public ArrayList<Set> getSets() {
+        return sets;
+    }
+
     public void deleteSet(int place){
         for (Set s: sets) {
             if (s.getPlace() == place){
                 sets.remove(s);
             }
         }
+
+
     }
 }
