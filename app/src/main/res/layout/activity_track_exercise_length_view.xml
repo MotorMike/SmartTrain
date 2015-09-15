@@ -19,7 +19,7 @@
         android:textColor="#81C784" />
 
     <TextView
-        android:id="@+id/textDescriptionTextView"
+        android:id="@+id/exerciseDescriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -33,7 +33,7 @@
         android:layout_width="fill_parent"
         android:layout_height="3dp"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/textDescriptionTextView"
+        android:layout_below="@+id/exerciseDescriptionTextView"
         android:layout_marginTop="10dp"
         android:background="#81C784"
         android:padding="20dp"
@@ -89,30 +89,20 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_weight="1" />
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/linearLayout2"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:orientation="vertical"
-        android:background="#81C784"
-        android:paddingTop="20dp"
-        android:layout_margin="5dp">
-
-
-
-
+        <View
+            android:id="@+id/view21"
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            android:layout_alignParentEnd="true"
+            android:background="#00000000"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="5dp">
+            android:background="#81C784"
+            android:padding="5dp" >
 
             <TextView
                 android:id="@+id/thisWorkoutTextView"
@@ -124,14 +114,6 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_weight="1" />
 
-            <EditText
-                android:id="@+id/inputEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_weight="1" />
-
             <TextView
                 android:id="@+id/unitsTextView2"
                 android:layout_width="wrap_content"
@@ -141,8 +123,18 @@
                 android:text="Units"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/inputEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="1" />
         </LinearLayout>
     </LinearLayout>
+
+
 
     <Button
         android:id="@+id/confirmButton"

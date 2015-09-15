@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class TrackExerciseSets extends AppCompatActivity {
 
@@ -38,33 +39,31 @@ public class TrackExerciseSets extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void settingUp(){
-
-        String[] Test = {"Set 1", "Set 2", "Set 3", "Set 5", "Set 6", "Set 7", "Set 8", "Set 9"};
-        ListAdapter setsViewAdapter = new CustomSetViewAdapter(this, Test);
-        ListView setsListView = (ListView) findViewById(R.id.setsListView);
-        setsListView.setAdapter(setsViewAdapter);
-
-        RepetitionExercise re = new RepetitionExercise("Push ups","Push the earth down");
-        re.addSet(20,40);
-        re.addSet(30,30);
+    public void settingUp() {
 
 
+        loadSets();
 
 
     }
 
-    public void loadSets(RepetitionExercise re){
-        /*ListAdapter setsViewAdapter = new CustomSetViewAdapter(this, re);
+    public void loadSets() {
+        RepetitionExercise re = new RepetitionExercise("Push ups", "Push the earth down");
+        re.addSet(99, 99);
+        re.addSet(88,88);
+        re.addSet(77,77);
+
+        TextView exerciseNameTextView = (TextView) findViewById(R.id.exerciseNameTextView);
+        TextView exerciseDescriptionTextView = (TextView) findViewById(R.id.exerciseDescriptionTextView);
+        exerciseNameTextView.setText(re.getName());
+        exerciseDescriptionTextView.setText(re.getDescription());
+
+
+        ListAdapter setsViewAdapter = new CustomSetViewAdapter(this, re.getSets());
         ListView setsListView = (ListView) findViewById(R.id.setsListView);
         setsListView.setAdapter(setsViewAdapter);
-        */
-
 
     }
-
-
-
 
 
 }

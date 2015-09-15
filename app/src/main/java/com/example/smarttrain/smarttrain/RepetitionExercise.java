@@ -24,6 +24,7 @@ public class RepetitionExercise extends Exercise {
         return sets;
     }
 
+
     public void deleteSet(int place){
         for (Set s: sets) {
             if (s.getPlace() == place){
