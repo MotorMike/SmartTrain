@@ -10,7 +10,7 @@ public class ViewLength extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_view_length);
+        setContentView(R.layout.activity_view_length);
     }
 
     @Override

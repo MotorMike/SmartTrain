@@ -10,7 +10,7 @@ public class ViewType extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_view_type);
+        setContentView(R.layout.activity_view_type);
     }
 
     @Override

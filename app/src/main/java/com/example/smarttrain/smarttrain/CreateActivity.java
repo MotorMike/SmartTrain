@@ -42,4 +42,10 @@ public class CreateActivity extends AppCompatActivity {
         startActivity(intentExercise);
 
     }
+
+    public void exerciseViewOnClick(View view){
+        Intent intentExercise = new Intent(getBaseContext(), ViewRepetition.class);
+        startActivity(intentExercise);
+
+    }
 }

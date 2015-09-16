@@ -48,7 +48,8 @@
                     android:src="@drawable/view"
                     android:layout_weight="1"
                     android:tint="#81C784"
-                    android:background="#FFFFFF" />
+                    android:background="#FFFFFF"
+                    android:onClick="exerciseViewOnClick" />
             </LinearLayout>
 
         </LinearLayout>
