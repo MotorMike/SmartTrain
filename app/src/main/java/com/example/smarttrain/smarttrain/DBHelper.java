@@ -13,17 +13,38 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class DBHelper extends SQLiteOpenHelper {
 
+    private static final String TAG = "DBHelper";
+
     //DB
     private static final String DB_NAME = "smartTrain.db";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 3;
 
     //Table Exercise
     public static final String TABLE_EXERCISE = "EXERCISE";
-    private static final String COLUMN_E_ID = "_id";
-    private static final String COLUMN_E_NAME = "_name";
-    private static final String COLUMN_E_VALUE = "_value";
-    private static final String COLUMN_E_UNIT = "_unit";
-    private static final String COLUMN_E_DESCRIPTION = "_description";
+    private static final String COLUMN_E_ID = "Exercise_id";
+    private static final String COLUMN_E_NAME = "Exercise_name";
+    private static final String COLUMN_E_DESCRIPTION = "Exercise_description";
+
+    //Table LengthExercise
+    public static final String TABLE_LENGTH_EXERCISE = "LengthExercise";
+    private static final String COLUMN_L_E_ID = "LengthExercise_id";
+    private static final String COLUMN_L_E_LENGTH = "LengthExercise_length";
+    private static final String COLUMN_L_E_UNIT = "LengthExercise_unit";
+    private static final String COLUMN_L_E_EXERCISE_ID = "Exercise_id";
+
+    //Table RepetitionExercise
+    public static final String TABLE_REPETITION_EXERCISE = "RepetitionExercise";
+    private static final String COLUMN_R_E_ID = "RepetitionExercise_id";
+    private static final String COLUMN_R_E_EXERCISE_ID = "Exercise_id";
+    private static final String COLUMN_R_E_PLACE = "PlaceCounter";
+    private static final String COLUMN_R_E_SETINFO_ID = "SetInfo_id";
+
+    //Table SetInfo
+    public static final String TABLE_SETINFO = "SetInfo";
+    private static final String COLUMN_S_ID = "Set_id";
+    private static final String COLUMN_S_POSITION = "PositionNumber";
+    private static final String COLUMN_S_REP = "RepAmount";
+    private static final String COLUMN_S_WEIGHT = "RepWeight";
 
 
     public DBHelper(Context context) {
@@ -35,32 +56,129 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
+    //TODO Constraints to be made constant
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Exercise Table
+        db.execSQL(queryExerciseTable());
+        db.execSQL(queryLengthExerciseTable());
+        db.execSQL(queryRepetitionExerciseTable());
+        db.execSQL(querySetInfoTable());
+    }
+
+    public void queryCheck(long result) {
+        if (result != -1) {
+            System.out.println(TAG + "Query check results PASS");
+        } else {
+            System.out.println(TAG + "Query check results FAILED");
+        }
+    }
+
+    public String queryExerciseTable() {
+        //Table Exercise
         String queryExercise = "CREATE TABLE " + TABLE_EXERCISE + "(" +
                 COLUMN_E_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_E_NAME + " TEXT, " +
-                COLUMN_E_VALUE + " INTEGER, " +
-                COLUMN_E_UNIT + "TEXT, " +
                 COLUMN_E_DESCRIPTION + " TEXT " +
                 ");";
-        db.execSQL(queryExercise);
+        return queryExercise;
+    }
 
+    public String queryLengthExerciseTable() {
+        //Table LengthExercise
+        String queryLengthExercise = "CREATE TABLE " + TABLE_LENGTH_EXERCISE + "(" +
+                COLUMN_L_E_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_L_E_LENGTH + " DOUBLE, " +
+                COLUMN_L_E_UNIT + " TEXT, " +
+                COLUMN_L_E_EXERCISE_ID + " INTEGER NOT NULL " +
+                ");";
+        return queryLengthExercise;
+    }
+
+    public String queryRepetitionExerciseTable() {
+        //Table RepetitionExercise
+        String queryRepetitionExercise = "CREATE TABLE " + TABLE_REPETITION_EXERCISE + "(" +
+                COLUMN_R_E_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_R_E_EXERCISE_ID + " INTEGER, " +
+                COLUMN_R_E_SETINFO_ID + " INTEGER , " +
+                COLUMN_R_E_PLACE + " INTEGER " +
+                ");";
+        return queryRepetitionExercise;
+    }
+
+    public String querySetInfoTable() {
+        //Table SetInfo
+        String querySetInfo = "CREATE TABLE " + TABLE_SETINFO + "(" +
+                COLUMN_S_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_S_POSITION + " TEXT, " +
+                COLUMN_S_REP + " INTEGER, " +
+                COLUMN_S_WEIGHT + " DOUBLE " +
+                ");";
+        return querySetInfo;
     }
 
     //Add a new Exercise row to the Exercise table
-    public void addExercise(Exercise exercise) {
+    public int addExerciseValues(Exercise exercise) {
         ContentValues values = new ContentValues();
+        SQLiteDatabase db = this.getWritableDatabase();
+
         values.put(COLUMN_E_NAME, exercise.getName());
-        //values.put(COLUMN_E_VALUE, exercise.getValue());
-        //values.put(COLUMN_E_UNIT, exercise.getUnit());
         values.put(COLUMN_E_DESCRIPTION, exercise.getDescription());
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.insert(TABLE_EXERCISE, null, values);
+        long result = db.insert(TABLE_EXERCISE, null, values);
         db.close();
+
+        return (int) result;
     }
+
+    public void addLengthExercise(LengthExercise exercise) {
+        int id = addExerciseValues(exercise);
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_L_E_LENGTH, exercise.getLength());
+        values.put(COLUMN_L_E_UNIT, exercise.getUnit());
+        values.put(COLUMN_L_E_EXERCISE_ID, id);
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.insert(TABLE_LENGTH_EXERCISE, null, values);
+        db.close();
+        queryCheck(result);
+        System.out.println("Result addLengthExercise" + result);
+    }
+
+    public void addRepetitionExercise(RepetitionExercise e) {
+
+        int id = addExerciseValues(e);
+        ContentValues values = new ContentValues();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        values.put(COLUMN_R_E_PLACE, e.placeCounter);
+        values.put(COLUMN_R_E_EXERCISE_ID, id);
+        long result = db.insert(TABLE_REPETITION_EXERCISE, null, values);
+        db.close();
+        queryCheck(result);
+        System.out.println("Result addRepetitionExercise" + result);
+
+    }
+
+
+   /* public int addSets(RepetitionExercise exercise, int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        for(Set s: exercise.getSets()){
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_S_POSITION, s.getPlace());
+            values.put(COLUMN_S_REP, s.getRepetitions());
+            values.put(COLUMN_S_WEIGHT, s.getWeight());
+            values.put(COLUMN_S_ID, id);
+            long result = db.insert(TABLE_SETINFO, null, values);
+            db.close();
+        }
+
+
+
+        db.close();
+        return (int) result;
+    }*/
+
 
     //Delete an Exercise from the Exercise table
     public void deleteExercise(String exerciseName) {
@@ -73,6 +191,9 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXERCISE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LENGTH_EXERCISE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_REPETITION_EXERCISE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETINFO);
         onCreate(db);
     }
 
@@ -98,5 +219,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
         return dbString;
     }
+
 
 }

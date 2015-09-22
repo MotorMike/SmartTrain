@@ -40,24 +40,19 @@ public class TrackExerciseSets extends AppCompatActivity {
     }
 
     public void settingUp() {
-
-
         loadSets();
-
-
     }
 
     public void loadSets() {
         RepetitionExercise re = new RepetitionExercise("Push ups", "Push the earth down");
         re.addSet(99, 99);
-        re.addSet(88,88);
-        re.addSet(77,77);
+        re.addSet(88, 88);
+        re.addSet(77, 77);
 
         TextView exerciseNameTextView = (TextView) findViewById(R.id.exerciseNameTextView);
         TextView exerciseDescriptionTextView = (TextView) findViewById(R.id.exerciseDescriptionTextView);
         exerciseNameTextView.setText(re.getName());
         exerciseDescriptionTextView.setText(re.getDescription());
-
 
         ListAdapter setsViewAdapter = new CustomSetViewAdapter(this, re.getSets());
         ListView setsListView = (ListView) findViewById(R.id.setsListView);
