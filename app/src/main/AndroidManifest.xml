@@ -68,6 +68,10 @@
             android:name=".TrackExerciseSets"
             android:label="@string/title_activity_track_exercise_sets" >
         </activity>
+        <activity
+            android:name=".ViewExerciseList"
+            android:label="@string/title_activity_view_exercise_list" >
+        </activity>
     </application>
 
 </manifest>

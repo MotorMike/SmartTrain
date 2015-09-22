@@ -44,7 +44,7 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     public void exerciseViewOnClick(View view){
-        Intent intentExercise = new Intent(getBaseContext(), ViewRepetition.class);
+        Intent intentExercise = new Intent(getBaseContext(), ViewExerciseList.class);
         startActivity(intentExercise);
 
     }
