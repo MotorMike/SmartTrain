@@ -8,13 +8,13 @@ public class Set {
     int repetitions;
     double weight;
 
-    Set(int place, int repetitions){
+    Set(int place, int repetitions) {
         this.repetitions = repetitions;
         weight = 0;
         this.place = place;
     }
 
-    Set(int place, int repetitions, double weight){
+    Set(int place, int repetitions, double weight) {
         this.repetitions = repetitions;
         this.weight = weight;
         this.place = place;

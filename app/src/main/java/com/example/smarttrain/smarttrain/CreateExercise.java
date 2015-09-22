@@ -67,19 +67,16 @@ public class CreateExercise extends AppCompatActivity {
             if(distanceRadio.isChecked()){
                 String eUnit = "metres"; //TODO make distance user input based
                 LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
-                DBHelper db = new DBHelper(this);
-                db.addExercise(exercise);
+                exercise.addToDataBase(this);
             }
             else if(timeRadio.isChecked()){
                 String eUnit = "seconds"; //TODO make time user input based
                 LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
-                DBHelper db = new DBHelper(this);
-                db.addExercise(exercise);
+                exercise.addToDataBase(this);
             }
             else if(setsRadio.isChecked()){
                 RepetitionExercise exercise = new RepetitionExercise(eName, eDescription);
-                DBHelper db = new DBHelper(this);
-                db.addExercise(exercise);
+                exercise.addToDataBase(this);
             }
         }
 
