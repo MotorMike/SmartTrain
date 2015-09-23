@@ -72,6 +72,10 @@
             android:name=".ViewExerciseList"
             android:label="@string/title_activity_view_exercise_list" >
         </activity>
+        <activity
+            android:name=".Test.TestingGUI"
+            android:label="@string/title_activity_testing_gui" >
+        </activity>
     </application>
 
 </manifest>

@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 
 /**
  * Created by Mike on 27/08/2015.
@@ -198,7 +200,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // Returns all elements in exercise table as a "\n" separated string
-    public String exerciseNameTableToString() {
+    public String exerciseTableNameToString() {
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_EXERCISE + " WHERE 1";
@@ -210,14 +212,51 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //Position after the last row means the end of the results
         while (!c.isAfterLast()) {
-            if (c.getString(c.getColumnIndex("productname")) != null) {
-                dbString += c.getString(c.getColumnIndex("productname"));
+            if (c.getString(c.getColumnIndex(COLUMN_E_NAME)) != null) {
+                dbString += c.getString(c.getColumnIndex(COLUMN_E_NAME));
                 dbString += "\n";
             }
             c.moveToNext();
         }
         db.close();
         return dbString;
+    }
+
+    // Returns all names in exercise table an ArrayList<String>
+    public ArrayList<String> exerciseNameToArray() {
+
+        ArrayList<String> nameArray = new ArrayList<>();
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_EXERCISE + " WHERE 1";
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            if (c.getString(c.getColumnIndex(COLUMN_E_NAME)) != null) {
+                nameArray.add(c.getString(c.getColumnIndex(COLUMN_E_NAME)));
+            }
+            c.moveToNext();
+        }
+        db.close();
+
+        return nameArray;
+    }
+
+
+    public String exerciseIDtoName(int id) {
+        String name = "Name not found";
+        String query = "SELECT " + COLUMN_E_NAME + " FROM " + TABLE_EXERCISE +
+                " WHERE " + COLUMN_E_ID + "=" + id + ";";
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery(query, null);
+
+        if (c != null && c.getCount() > 0) {
+            c.moveToFirst();
+            do {
+                name = c.getString(0);
+            } while (c.moveToNext());
+        }
+
+        return name;
     }
 
 
