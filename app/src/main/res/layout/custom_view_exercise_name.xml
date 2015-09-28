@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/exerciseIDTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#010101"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/exerciseNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ExerciseName"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#010101"
+        android:gravity="center_vertical"
+        android:layout_weight="3"
+        android:paddingLeft="5dp"
+        android:onClick="exerciseView" />
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:id="@+id/removeExButton"
+        android:textSize="20sp"
+        android:gravity="center_vertical|right"
+        android:paddingRight="10dp"
+        android:onClick="xButton"
+        android:visibility="visible" />
+</LinearLayout>

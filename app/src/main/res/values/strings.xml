@@ -25,6 +25,9 @@
     <string name="title_activity_view_repetition">ViewRepetition</string>
     <string name="title_activity_view_exercise_list">ViewExerciseList</string>
     <string name="title_activity_testing_gui">TestingGUI</string>
+    <string name="title_activity_create_workout">CreateWorkout</string>
+    <string name="title_activity_add_exercise_to">AddExerciseTo</string>
+    <string name="title_activity_plan_set_exercise">PlanSetExercise</string>
 
 
 </resources>

@@ -38,7 +38,8 @@
         </activity>
         <activity
             android:name=".CreateExercise"
-            android:label="@string/title_activity_create_exercise" >
+            android:label="@string/title_activity_create_exercise"
+            android:windowSoftInputMode="stateHidden" >
         </activity>
         <activity
             android:name=".TrackExerciseLengthView"
@@ -61,20 +62,25 @@
             android:label="@string/title_activity_view_repetition" >
         </activity>
         <activity
-            android:name=".TrackExerciseLengthView"
-            android:label="@string/title_activity_track_exercise_length_view" >
-        </activity>
-        <activity
-            android:name=".TrackExerciseSets"
-            android:label="@string/title_activity_track_exercise_sets" >
-        </activity>
-        <activity
             android:name=".ViewExerciseList"
             android:label="@string/title_activity_view_exercise_list" >
         </activity>
         <activity
             android:name=".Test.TestingGUI"
             android:label="@string/title_activity_testing_gui" >
+        </activity>
+        <activity
+            android:name=".CreateWorkout"
+            android:label="@string/title_activity_create_workout"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".AddExerciseTo"
+            android:label="@string/title_activity_add_exercise_to" >
+        </activity>
+        <activity
+            android:name=".PlanSetExercise"
+            android:label="@string/title_activity_plan_set_exercise" >
         </activity>
     </application>
 

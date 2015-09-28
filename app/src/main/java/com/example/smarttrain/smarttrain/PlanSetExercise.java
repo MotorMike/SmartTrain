@@ -1,24 +1,24 @@
 package com.example.smarttrain.smarttrain;
 
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class CreateActivity extends AppCompatActivity {
+public class PlanSetExercise extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create);
+        setContentView(R.layout.activity_plan_set_exercise);
+        Bundle extras = getIntent().getExtras();
+        String name = extras.getString("ExerciseID");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_create, menu);
+        getMenuInflater().inflate(R.menu.menu_plan_set_exercise, menu);
         return true;
     }
 
@@ -36,23 +36,5 @@ public class CreateActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    public void exerciseButtonOnClick(View view){
-        Intent intentExercise = new Intent(getBaseContext(), CreateExercise.class);
-        startActivity(intentExercise);
-
-    }
-
-    public void exerciseViewOnClick(View view){
-        Intent intentExercise = new Intent(getBaseContext(), ViewExerciseList.class);
-        startActivity(intentExercise);
-
-    }
-
-    public void workoutCreateOnClick(View view){
-        Intent intentExercise = new Intent(getBaseContext(), CreateWorkout.class);
-        startActivity(intentExercise);
-    }
-
 
 }

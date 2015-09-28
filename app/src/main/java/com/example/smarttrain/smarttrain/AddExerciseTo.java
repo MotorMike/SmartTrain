@@ -1,5 +1,6 @@
 package com.example.smarttrain.smarttrain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -8,11 +9,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ViewExerciseList extends AppCompatActivity {
+public class AddExerciseTo extends AppCompatActivity {
 
     ListView exerciseListView;
     ArrayList exerciess;
@@ -21,7 +21,8 @@ public class ViewExerciseList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_exercise_list);
+        setContentView(R.layout.activity_add_exercise_to);
+
         dbHelper = new DBHelper(this);
         exerciseListView = (ListView) findViewById(R.id.exerciseListView);
         exerciess = dbHelper.exerciseNameToArray();
@@ -39,20 +40,35 @@ public class ViewExerciseList extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String item = String.valueOf(parent.getItemAtPosition(position));
-                        Toast.makeText(ViewExerciseList.this, item, Toast.LENGTH_SHORT).show();
-
-                        // TODO View exercise here
+                        //Toast.makeText(AddExerciseTo.this, "Yo u clicked ", Toast.LENGTH_LONG).show();
+                        loadExerciseBuilder(item);
+                        // TODO Return exercise id
                     }
                 }
         );
+    }
 
+    private void loadExerciseBuilder(String item) {
+        //Toast.makeText(AddExerciseTo.this, "Item is "+ item, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(AddExerciseTo.this,PlanSetExercise.class);
+        intent.putExtra("ExerciseID",item);
+        startActivity(intent);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+            if (resultCode == RESULT_OK){
+
+            }
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_view_exercise_list, menu);
+        getMenuInflater().inflate(R.menu.menu_add_exercise_to, menu);
         return true;
     }
 
