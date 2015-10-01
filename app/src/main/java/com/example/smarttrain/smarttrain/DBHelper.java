@@ -223,7 +223,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // Returns all names in exercise table an ArrayList<String>
-    public ArrayList<String> exerciseNameToArray() {
+    public ArrayList<String> exerciseNameToArrayList() {
 
         ArrayList<String> nameArray = new ArrayList<>();
         SQLiteDatabase db = getWritableDatabase();
@@ -240,6 +240,20 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return nameArray;
     }
+
+    // Returns all names in exercise table an ArrayList<String>
+    public String[] exerciseNameToArray() {
+
+        ArrayList<String> list = exerciseNameToArrayList();
+        String[] nameArray = new String[list.size()];
+
+        for (int i = 0; i < list.size(); i++) {
+            nameArray[i] = list.get(i);
+        }
+
+        return nameArray;
+    }
+
 
 
     public String exerciseIDtoName(int id) {

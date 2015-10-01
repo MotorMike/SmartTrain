@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Name"
-            android:id="@+id/ExNameTextView"
+            android:id="@+id/exNameTextView"
             android:layout_gravity="center_horizontal" />
 
         <LinearLayout
@@ -37,7 +37,6 @@
                 android:src="@drawable/tick"
                 android:textColor="#FFFFFF"
                 android:textSize="34sp"
-                android:onClick="saveWorkoutOnClick"
                 android:clickable="true"
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
@@ -54,13 +53,13 @@
                 android:src="@drawable/tick"
                 android:textColor="#FFFFFF"
                 android:textSize="34sp"
-                android:onClick="addExercise"
                 android:clickable="true"
                 android:textAlignment="center"
                 android:gravity="center_horizontal"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="addSetOnclick" />
 
         </LinearLayout>
 
@@ -86,7 +85,7 @@
         <ListView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:id="@+id/PlannedSetsListView"
+            android:id="@+id/plannedSetsListView"
             android:headerDividersEnabled="true"
             android:clickable="true"
             android:choiceMode="singleChoice" />

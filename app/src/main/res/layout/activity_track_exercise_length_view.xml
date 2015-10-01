@@ -9,7 +9,7 @@
     tools:context="com.example.smarttrain.smarttrain.TrackExerciseLengthView">
 
     <TextView
-        android:id="@+id/exerciseNameTextView"
+        android:id="@+id/TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/exerciseNameTextView"
+        android:layout_below="@+id/TextView"
         android:layout_marginTop="10dp"
         android:text="This is where the users description will apear if the user has entered one about each exercise"
         android:textAppearance="?android:attr/textAppearanceMedium" />

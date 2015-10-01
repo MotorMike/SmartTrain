@@ -15,7 +15,7 @@ public class RepetitionExercise extends Exercise {
     RepetitionExercise(String name, String description) {
         super(name, description);
         sets = new ArrayList<Set>();
-        placeCounter = 1;
+        placeCounter = 0;
     }
 
     @Override

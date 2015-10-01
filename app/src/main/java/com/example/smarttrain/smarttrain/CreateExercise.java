@@ -9,6 +9,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+
+//TODO clear screen/finish activity or inform user exercise was saved
+
 public class CreateExercise extends AppCompatActivity {
 
     EditText nameInputEditText;

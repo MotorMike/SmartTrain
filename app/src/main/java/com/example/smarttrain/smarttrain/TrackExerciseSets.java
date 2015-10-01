@@ -49,7 +49,7 @@ public class TrackExerciseSets extends AppCompatActivity {
         re.addSet(88, 88);
         re.addSet(77, 77);
 
-        TextView exerciseNameTextView = (TextView) findViewById(R.id.exerciseNameTextView);
+        TextView exerciseNameTextView = (TextView) findViewById(R.id.TextView);
         TextView exerciseDescriptionTextView = (TextView) findViewById(R.id.exerciseDescriptionTextView);
         exerciseNameTextView.setText(re.getName());
         exerciseDescriptionTextView.setText(re.getDescription());

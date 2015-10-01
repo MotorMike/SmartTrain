@@ -2,11 +2,11 @@ package com.example.smarttrain.smarttrain;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,25 +15,25 @@ import java.util.ArrayList;
 public class ViewExerciseList extends AppCompatActivity {
 
     ListView exerciseListView;
-    ArrayList exerciess;
+    ArrayList<String> exercises;
     DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_exercise_list);
+
+
         dbHelper = new DBHelper(this);
         exerciseListView = (ListView) findViewById(R.id.exerciseListView);
-        exerciess = dbHelper.exerciseNameToArray();
+        exercises = new ArrayList<>(dbHelper.exerciseNameToArrayList());
+
+        String[] exNames = dbHelper.exerciseNameToArray();
+        ListAdapter adapter = new CustomExerciseViewAdapter(this, exNames);
+        exerciseListView.setAdapter(adapter);
 
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                exerciess);
-
-        exerciseListView.setAdapter(arrayAdapter);
-
+        /*
         exerciseListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
@@ -45,7 +45,7 @@ public class ViewExerciseList extends AppCompatActivity {
                     }
                 }
         );
-
+        */
 
     }
 
@@ -70,4 +70,17 @@ public class ViewExerciseList extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void exerciseView(View view){
+        CharSequence text = "Button not implemented";
+        Log.d("ViewExerciseList",view.getId()+" Button ID");
+        Toast.makeText(ViewExerciseList.this,text, Toast.LENGTH_LONG).show();
+    }
+
+    public void xButton (View view){
+        CharSequence text = "X Button not implemented";
+        Log.d("ViewExerciseList",view.getId()+" X Button ID");
+        Toast.makeText(ViewExerciseList.this,text, Toast.LENGTH_LONG).show();
+    }
+
 }

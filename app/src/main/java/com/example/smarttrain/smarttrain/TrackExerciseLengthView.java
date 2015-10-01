@@ -73,7 +73,7 @@ public class TrackExerciseLengthView extends AppCompatActivity {
         TextView valueTextView = (TextView) findViewById(R.id.valueTextView);
         TextView unitTextView = (TextView) findViewById(R.id.unitTextView);
         TextView unitsTextView2 = (TextView) findViewById(R.id.unitsTextView2);
-        TextView exerciseNameTextView = (TextView) findViewById(R.id.exerciseNameTextView);
+        TextView exerciseNameTextView = (TextView) findViewById(R.id.TextView);
         TextView textDescriptionTextView = (TextView) findViewById(R.id.exerciseDescriptionTextView);
 
         unitTextView.setText(lengthExercise.getUnit());

@@ -7,7 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,10 +38,11 @@ public class CreateWorkout extends Activity {
     }
 
     private void loadTestItems() {
-        testItems = new String[]{"1", "2", "3", "4"};
+        /*testItems = new String[]{"1", "2", "3", "4"};
         ListAdapter exerciseList = new CustomExerciseViewAdapter(this, testItems);
         ListView exerciseListView = (ListView) findViewById(R.id.exerciseListView);
         exerciseListView.setAdapter(exerciseList);
+    */
     }
 
     @Override

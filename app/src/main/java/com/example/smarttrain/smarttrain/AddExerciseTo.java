@@ -25,7 +25,7 @@ public class AddExerciseTo extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
         exerciseListView = (ListView) findViewById(R.id.exerciseListView);
-        exerciess = dbHelper.exerciseNameToArray();
+        exerciess = dbHelper.exerciseNameToArrayList();
 
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(

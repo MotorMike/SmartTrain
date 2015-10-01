@@ -12,7 +12,7 @@ import android.widget.TextView;
  * This is the middle setting up the exercise view for building a workout
  * Takes exerciseID and returns the name in a custom view
  */
-class CustomExerciseViewAdapter extends ArrayAdapter<String> {
+class CustomExerciseViewAdapter extends ArrayAdapter<String>{
 
     DBHelper db;
 
@@ -29,13 +29,13 @@ class CustomExerciseViewAdapter extends ArrayAdapter<String> {
         View customView = layoutInflater.inflate(R.layout.custom_view_exercise_name, parent, false);
 
         String singleID = getItem(position);
-        String exerciseID = db.exerciseIDtoName(Integer.parseInt(singleID));
-        TextView exerciseIDTextView = (TextView) customView.findViewById(R.id.exerciseIDTextView);
-        TextView exerciseNameTextView = (TextView) customView.findViewById(R.id.exerciseNameTextView);
+        //String exerciseName = db.exerciseIDtoName(Integer.parseInt(singleID));
+        //TextView exerciseIDTextView = (TextView) customView.findViewById(R.id.exerciseIDTextView);
+        TextView exerciseNameTextView = (TextView) customView.findViewById(R.id.exNameTextView);
 
 
-        exerciseIDTextView.setText(singleID);
-        exerciseNameTextView.setText(exerciseID);
+        //exerciseIDTextView.setText(singleID);
+        exerciseNameTextView.setText(singleID);
 
         return customView;
     }
