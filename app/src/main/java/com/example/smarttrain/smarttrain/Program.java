@@ -52,7 +52,7 @@ public class Program {
             return false;
         }
     }
-    
+
 
     private void fillDefaultMap(){
         map.put("Monday", null);
