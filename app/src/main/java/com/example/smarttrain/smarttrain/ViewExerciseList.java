@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewParent;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -33,19 +35,21 @@ public class ViewExerciseList extends AppCompatActivity {
         exerciseListView.setAdapter(adapter);
 
 
-        /*
         exerciseListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String item = String.valueOf(parent.getItemAtPosition(position));
+                        Object object = parent.getItemAtPosition(position);
+
+                        Log.d("ViewExerciseList", "Onclick lister item is: " + item);
                         Toast.makeText(ViewExerciseList.this, item, Toast.LENGTH_SHORT).show();
 
                         // TODO View exercise here
                     }
                 }
         );
-        */
+
 
     }
 
@@ -71,16 +75,21 @@ public class ViewExerciseList extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void exerciseView(View view){
+    public void exerciseView(View view) {
         CharSequence text = "Button not implemented";
-        Log.d("ViewExerciseList",view.getId()+" Button ID");
-        Toast.makeText(ViewExerciseList.this,text, Toast.LENGTH_LONG).show();
+        Log.d("ViewExerciseList", view.getId() + " Button ID");
+        ViewParent newView = view.getParent();
+        Log.d("ViewExerciseList", newView.toString() + "Exercise Button parent ID");
+        Toast.makeText(ViewExerciseList.this, text, Toast.LENGTH_LONG).show();
     }
 
-    public void xButton (View view){
+    public void xButton(View view) {
         CharSequence text = "X Button not implemented";
-        Log.d("ViewExerciseList",view.getId()+" X Button ID");
-        Toast.makeText(ViewExerciseList.this,text, Toast.LENGTH_LONG).show();
+        ViewParent newView = view.getParent();
+
+        Log.d("ViewExerciseList", newView.toString() + " X Button ID");
+        Log.d("ViewExerciseList", view.getId() + " X Button ID");
+        Toast.makeText(ViewExerciseList.this, text, Toast.LENGTH_LONG).show();
     }
 
 }
