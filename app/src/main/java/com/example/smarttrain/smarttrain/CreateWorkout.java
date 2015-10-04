@@ -11,16 +11,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class CreateWorkout extends Activity {
 
     String[] testItems;
     final static int resultID = 0;
+    ArrayList exercisesInWorkout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_workout);
-
+        exercisesInWorkout = new ArrayList<String>();
         //loadTestItems();
         setCallBack();
     }
@@ -74,7 +77,24 @@ public class CreateWorkout extends Activity {
 
     public void addExercise(View view) {
         Intent intent = new Intent(this, AddExerciseTo.class);
-        startActivityForResult(intent, resultID);
+        startActivityForResult(intent, 2);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+
+        TextView nameInputEditText = (TextView) findViewById(R.id.nameInputEditText);
+
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 2) {
+                String message = data.getStringExtra("MESSAGE");
+                nameInputEditText.setText(message);
+            }
+        }
+
 
     }
 

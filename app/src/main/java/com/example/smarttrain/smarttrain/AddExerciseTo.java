@@ -3,6 +3,7 @@ package com.example.smarttrain.smarttrain;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,6 +41,7 @@ public class AddExerciseTo extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         String item = String.valueOf(parent.getItemAtPosition(position));
+                        Log.d("AddExerciseTo", item + " Item selected");
                         //Toast.makeText(AddExerciseTo.this, "Yo u clicked ", Toast.LENGTH_LONG).show();
                         loadExerciseBuilder(item);
                         // TODO Return exercise id
@@ -50,20 +52,29 @@ public class AddExerciseTo extends AppCompatActivity {
 
     private void loadExerciseBuilder(String item) {
         //Toast.makeText(AddExerciseTo.this, "Item is "+ item, Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(AddExerciseTo.this,PlanSetExercise.class);
-        intent.putExtra("ExerciseID",item);
-        startActivity(intent);
+        Intent intent = new Intent(AddExerciseTo.this, PlanSetExercise.class);
+        intent.putExtra("ExerciseName", item);
+        startActivityForResult(intent, 2);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
-            if (resultCode == RESULT_OK){
 
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 2) {
+                String message = data.getStringExtra("MESSAGE");
+                Intent intentMessage = new Intent();
+                intentMessage.putExtra("MESSAGE", message);
+                setResult(RESULT_OK, intentMessage);
+                finish();
             }
+        }
+
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

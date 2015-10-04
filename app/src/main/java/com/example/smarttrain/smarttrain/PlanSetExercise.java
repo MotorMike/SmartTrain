@@ -1,5 +1,6 @@
 package com.example.smarttrain.smarttrain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -7,46 +8,59 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class PlanSetExercise extends AppCompatActivity {
 
 
-    //RepetitionExercise repetitionExercise;
+    RepetitionExercise repetitionExercise;
     ListView plannedSetsListView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_set_exercise);
 
-        RepetitionExercise repetitionExercise = new RepetitionExercise("Name here", "Default");
+        Intent i = getIntent();
+        String exName = i.getStringExtra("ExerciseName");
+        repetitionExercise = new RepetitionExercise(exName, "Default");
         repetitionExercise.addSet(1, 11.11);
         //repetitionExercise.addSet(2, 22.22);
         //repetitionExercise.addSet(3, 33.33);
 
-        ArrayList<Set> al = repetitionExercise.getSets();
+        updateView();
 
+    }
+
+
+    public void confirmOnclick(View view) {
+        TextView exNameTextView = (TextView) findViewById(R.id.exNameTextView);
+        String message = exNameTextView.getText().toString();
+        Intent intentMessage = new Intent();
+        intentMessage.putExtra("MESSAGE", message);
+        setResult(RESULT_OK, intentMessage);
+        finish();
+
+    }
+
+
+    public void addSetOnclick(View view) {
+        //View nextSet = getLayoutInflater().inflate(R.layout.custom_view_set_builder, null);
+        //plannedSetsListView.addView(nextSet);
+        //Toast.makeText(PlanSetExercise.this, "addSetOnclick worked", Toast.LENGTH_LONG).show();
+        repetitionExercise.addSet(0, 0.00);
+        updateView();
+    }
+
+    private void updateView() {
+        ArrayList<Set> al = repetitionExercise.getSets();
         plannedSetsListView = (ListView) findViewById(R.id.plannedSetsListView);
         CustomSetBuildAdapter customSetBuildAdapter = new CustomSetBuildAdapter(this, al);
         plannedSetsListView.setAdapter(customSetBuildAdapter);
         TextView exNameTextView = (TextView) findViewById(R.id.exNameTextView);
         exNameTextView.setText(repetitionExercise.getName());
-    }
-
-    public void addSetOnclick(View view) {
-        View nextSet = getLayoutInflater().inflate(R.layout.custom_view_set_builder, null);
-        plannedSetsListView.addView(nextSet);
-
-        Toast.makeText(PlanSetExercise.this, "addSetOnclick worked", Toast.LENGTH_LONG).show();
-
-
-    }
-
-    private void updateView() {
-
     }
 
    /* private void setUpListView() {
