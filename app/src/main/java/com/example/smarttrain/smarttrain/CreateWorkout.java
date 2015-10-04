@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,37 +16,17 @@ import java.util.ArrayList;
 
 public class CreateWorkout extends Activity {
 
-    String[] testItems;
-    final static int resultID = 0;
-    ArrayList exercisesInWorkout;
+    ArrayList<String> exercisesInWorkout;
+    ListView exerciseListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_workout);
         exercisesInWorkout = new ArrayList<String>();
-        //loadTestItems();
+        exerciseListView = (ListView) findViewById(R.id.exerciseListView);
+
         setCallBack();
-    }
-
-    private void setCallBack() {
-        ListView exerciseListView = (ListView) findViewById(R.id.exerciseListView);
-        exerciseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
-                View clickedExercise = viewClicked;
-                Toast.makeText(CreateWorkout.this, clickedExercise.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-    private void loadTestItems() {
-        /*testItems = new String[]{"1", "2", "3", "4"};
-        ListAdapter exerciseList = new CustomExerciseViewAdapter(this, testItems);
-        ListView exerciseListView = (ListView) findViewById(R.id.exerciseListView);
-        exerciseListView.setAdapter(exerciseList);
-    */
     }
 
     @Override
@@ -70,6 +51,20 @@ public class CreateWorkout extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    private void setCallBack() {
+        ListView exerciseListView = (ListView) findViewById(R.id.exerciseListView);
+        exerciseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
+                View clickedExercise = viewClicked;
+                Toast.makeText(CreateWorkout.this, clickedExercise.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
     public void saveWorkoutOnClick(View view) {
         Toast.makeText(CreateWorkout.this, "Workout saved message", Toast.LENGTH_SHORT).show();
         //TODO save + save confirmation + Saved icon?
@@ -83,7 +78,6 @@ public class CreateWorkout extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
 
         TextView nameInputEditText = (TextView) findViewById(R.id.nameInputEditText);
@@ -91,11 +85,15 @@ public class CreateWorkout extends Activity {
         if (resultCode == RESULT_OK) {
             if (requestCode == 2) {
                 String message = data.getStringExtra("MESSAGE");
-                nameInputEditText.setText(message);
+                exercisesInWorkout.add(message);
             }
         }
+        updateView();
+    }
 
-
+    private void updateView() {
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exercisesInWorkout);
+        exerciseListView.setAdapter(arrayAdapter);
     }
 
 
