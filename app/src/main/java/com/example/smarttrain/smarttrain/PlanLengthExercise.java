@@ -6,27 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-public class PlanSetExercise extends AppCompatActivity {
-
-
-    RepetitionExercise repetitionExercise;
-    ListView plannedSetsListView;
-
+public class PlanLengthExercise extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plan_set_exercise);
+        setContentView(R.layout.activity_plan_length_exercise);
 
         Intent i = getIntent();
         String exName = i.getStringExtra("ExerciseName");
-        repetitionExercise = new RepetitionExercise(exName, "Default");
-        updateView();
+        TextView exNameTextView = (TextView) findViewById(R.id.exNameTextView);
+        exNameTextView.setText(exName);
 
     }
 
@@ -43,20 +35,11 @@ public class PlanSetExercise extends AppCompatActivity {
 
 
     public void addSetOnclick(View view) {
-        //View nextSet = getLayoutInflater().inflate(R.layout.custom_view_set_builder, null);
-        //plannedSetsListView.addView(nextSet);
-        //Toast.makeText(PlanSetExercise.this, "addSetOnclick worked", Toast.LENGTH_LONG).show();
-        repetitionExercise.addSet(0, 0.00);
-        updateView();
+
     }
 
     private void updateView() {
-        ArrayList<Set> al = repetitionExercise.getSets();
-        plannedSetsListView = (ListView) findViewById(R.id.plannedSetsListView);
-        CustomSetBuildAdapter customSetBuildAdapter = new CustomSetBuildAdapter(this, al);
-        plannedSetsListView.setAdapter(customSetBuildAdapter);
-        TextView exNameTextView = (TextView) findViewById(R.id.exNameTextView);
-        exNameTextView.setText(repetitionExercise.getName());
+
     }
 
 
@@ -81,5 +64,4 @@ public class PlanSetExercise extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }

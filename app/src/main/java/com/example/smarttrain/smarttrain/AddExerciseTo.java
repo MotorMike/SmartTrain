@@ -51,10 +51,19 @@ public class AddExerciseTo extends AppCompatActivity {
     }
 
     private void loadExerciseBuilder(String item) {
-        //Toast.makeText(AddExerciseTo.this, "Item is "+ item, Toast.LENGTH_LONG).show();
+        //If item is reps do this
         Intent intent = new Intent(AddExerciseTo.this, PlanSetExercise.class);
         intent.putExtra("ExerciseName", item);
         startActivityForResult(intent, 2);
+
+
+        /*
+        //If item is length do this
+        Intent intent = new Intent(AddExerciseTo.this, PlanLengthExercise.class);
+        intent.putExtra("ExerciseName", item);
+        startActivityForResult(intent, 2);
+        */
+
     }
 
     @Override

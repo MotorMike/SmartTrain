@@ -53,14 +53,25 @@ public class CreateWorkout extends Activity {
 
 
     private void setCallBack() {
-        ListView exerciseListView = (ListView) findViewById(R.id.exerciseListView);
+        final ListView exerciseListView = (ListView) findViewById(R.id.exerciseListView);
+
         exerciseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
-                View clickedExercise = viewClicked;
-                Toast.makeText(CreateWorkout.this, clickedExercise.toString(), Toast.LENGTH_SHORT).show();
+                String exName = String.valueOf(parent.getItemAtPosition(position));
+                Toast.makeText(CreateWorkout.this, exName + " Taped", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        exerciseListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                String exName = String.valueOf(parent.getItemAtPosition(position));
+                Toast.makeText(CreateWorkout.this, exName + " Hold", Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
+
 
     }
 

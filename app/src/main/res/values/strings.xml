@@ -28,6 +28,7 @@
     <string name="title_activity_create_workout">CreateWorkout</string>
     <string name="title_activity_add_exercise_to">AddExerciseTo</string>
     <string name="title_activity_plan_set_exercise">PlanSetExercise</string>
+    <string name="title_activity_plan_length_exercise">PlanLengthExercise</string>
 
 
 </resources>

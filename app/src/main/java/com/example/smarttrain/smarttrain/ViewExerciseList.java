@@ -25,7 +25,6 @@ public class ViewExerciseList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_exercise_list);
 
-
         dbHelper = new DBHelper(this);
         exerciseListView = (ListView) findViewById(R.id.exerciseListView);
         exercises = new ArrayList<>(dbHelper.exerciseNameToArrayList());
@@ -34,24 +33,11 @@ public class ViewExerciseList extends AppCompatActivity {
         ListAdapter adapter = new CustomExerciseViewAdapter(this, exNames);
         exerciseListView.setAdapter(adapter);
 
-
-        exerciseListView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String item = String.valueOf(parent.getItemAtPosition(position));
-                        Object object = parent.getItemAtPosition(position);
-
-                        Log.d("ViewExerciseList", "Onclick lister item is: " + item);
-                        Toast.makeText(ViewExerciseList.this, item, Toast.LENGTH_SHORT).show();
-
-                        // TODO View exercise here
-                    }
-                }
-        );
+        loadCallBackListener();
 
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,6 +76,37 @@ public class ViewExerciseList extends AppCompatActivity {
         Log.d("ViewExerciseList", newView.toString() + " X Button ID");
         Log.d("ViewExerciseList", view.getId() + " X Button ID");
         Toast.makeText(ViewExerciseList.this, text, Toast.LENGTH_LONG).show();
+    }
+
+    private void loadCallBackListener() {
+        /*exerciseListView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        String item = String.valueOf(parent.getItemAtPosition(position));
+                        Object object = parent.getItemAtPosition(position);
+                        Log.d("ViewExerciseList", "Onclick lister item is: " + item);
+                        Toast.makeText(ViewExerciseList.this, item, Toast.LENGTH_SHORT).show();
+                        // TODO View exercise here
+                    }
+                }
+        );*/
+
+        exerciseListView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        long viewId = view.getId();
+
+                        if (viewId == R.id.removeExButton) {
+                            Toast.makeText(ViewExerciseList.this, "Button 1 clicked", Toast.LENGTH_SHORT).show();
+                        }else if(viewId == R.id.exNameTextView){
+                            Toast.makeText(ViewExerciseList.this, "exNameTextView", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+
+                });
     }
 
 }

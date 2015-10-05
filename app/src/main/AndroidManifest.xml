@@ -82,6 +82,11 @@
             android:name=".PlanSetExercise"
             android:label="@string/title_activity_plan_set_exercise" >
         </activity>
+        <activity
+            android:name=".PlanLengthExercise"
+            android:label="@string/title_activity_plan_length_exercise"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
