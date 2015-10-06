@@ -29,7 +29,7 @@
     <string name="title_activity_add_exercise_to">AddExerciseTo</string>
     <string name="title_activity_plan_set_exercise">PlanSetExercise</string>
     <string name="title_activity_plan_length_exercise">PlanLengthExercise</string>
-    <string name="title_activity_exercise_units">ExerciseUnits</string>
+    <string name="title_activity_exercise_units">Add Units</string>
 
 
 </resources>

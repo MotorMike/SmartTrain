@@ -25,7 +25,7 @@
                 android:layout_marginTop="20dp"
                 android:hint="Name"
                 android:inputType="text"
-                android:textColor="#81C784"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#81C784" />
 
             <EditText
@@ -37,7 +37,7 @@
                 android:autoText="false"
                 android:hint="Short description about the exercise"
                 android:inputType="textMultiLine"
-                android:textColor="#81C784"
+                android:textColor="#FFFFFF"
                 android:textColorHint="#81C784" />
 
             <View
