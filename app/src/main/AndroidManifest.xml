@@ -87,6 +87,10 @@
             android:label="@string/title_activity_plan_length_exercise"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".ExerciseUnits"
+            android:label="@string/title_activity_exercise_units" >
+        </activity>
     </application>
 
 </manifest>

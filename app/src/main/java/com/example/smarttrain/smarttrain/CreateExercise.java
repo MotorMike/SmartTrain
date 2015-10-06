@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 
 //TODO clear screen/finish activity or inform user exercise was saved
@@ -81,6 +82,16 @@ public class CreateExercise extends AppCompatActivity {
                 RepetitionExercise exercise = new RepetitionExercise(eName, eDescription);
                 exercise.addToDataBase(this);
             }
+
+            Toast.makeText(CreateExercise.this, "Exercise Created", Toast.LENGTH_SHORT).show();
+
+            if (nameInputEditText != null) nameInputEditText.setText(null);
+            if (descriptionInputEditText != null) descriptionInputEditText.setText(null);
+            radioGroup.clearCheck();
+
+        }
+        else {
+            Toast.makeText(CreateExercise.this, "Unsuccessful", Toast.LENGTH_SHORT).show();
         }
 
         //When the exercise is built take user to exercise view
@@ -89,6 +100,7 @@ public class CreateExercise extends AppCompatActivity {
         //startActivity(intent);
     }
 
+    //TODO add validation to check name is unique.
     private boolean isValid(String name, String description, RadioGroup radioGroup){
         boolean isValid = true;
 
@@ -111,7 +123,7 @@ public class CreateExercise extends AppCompatActivity {
     }
 
     private boolean isValidName(String name){
-        if (name != null && name.length() > 3) {
+        if (name != null && name.length() >= 3) {
             return true;
         }
         return false;
