@@ -32,7 +32,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/"
+        android:id="@+id/addUnitsButton"
         android:layout_marginTop="57dp"
         android:src="@drawable/tick"
         android:layout_gravity="center_horizontal"
