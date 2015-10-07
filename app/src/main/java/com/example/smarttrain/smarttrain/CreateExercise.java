@@ -63,12 +63,12 @@ public class CreateExercise extends AppCompatActivity {
 
     public void distanceTimeButtonOnClick (View view){
         findViewById(R.id.textView20).setVisibility(View.VISIBLE);
-        findViewById(R.id.editText).setVisibility(View.VISIBLE);
+        findViewById(R.id.unitsInputEditText).setVisibility(View.VISIBLE);
     }
 
     public void setsButtonOnClick (View view){
         findViewById(R.id.textView20).setVisibility(View.GONE);
-        findViewById(R.id.editText).setVisibility(View.GONE);
+        findViewById(R.id.unitsInputEditText).setVisibility(View.GONE);
     }
 
     public void newExerciseCreateButtonOnClick (View view){
