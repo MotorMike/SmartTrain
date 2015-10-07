@@ -12,7 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 
-//TODO clear screen/finish activity or inform user exercise was saved
+//TODO clear screen/finish activity or inform user exercise was saved, Trim input?
 
 public class CreateExercise extends AppCompatActivity {
 
