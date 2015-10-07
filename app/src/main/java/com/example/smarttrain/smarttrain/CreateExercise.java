@@ -80,40 +80,41 @@ public class CreateExercise extends AppCompatActivity {
         descriptionInputEditText.setError(null);
         distanceRadio.setError(null);
 
+
         if(isValid(eName, eDescription, radioGroup)){
-            if(distanceRadio.isChecked()){
+            if(distanceRadio.isChecked() || timeRadio.isChecked()){
                 String eUnit = unitsInputEditText.getText().toString();
-                LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
-                exercise.addToDataBase(this);
-            }
-            else if(timeRadio.isChecked()){
-                String eUnit = unitsInputEditText.getText().toString();
-                LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
-                exercise.addToDataBase(this);
+                if(isValidUnit(eUnit)){
+                    LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
+                    exercise.addToDataBase(this);
+
+                    Toast.makeText(CreateExercise.this, "Exercise Created", Toast.LENGTH_SHORT).show();
+                    clearForm();
+                }
+                else{
+                    unitsInputEditText.setError("A unit is required and must be at least 3 characters long.");
+                    Toast.makeText(CreateExercise.this, "Unsuccessful", Toast.LENGTH_SHORT).show();
+                }
+
             }
             else if(setsRadio.isChecked()){
                 RepetitionExercise exercise = new RepetitionExercise(eName, eDescription);
                 exercise.addToDataBase(this);
             }
 
-            Toast.makeText(CreateExercise.this, "Exercise Created", Toast.LENGTH_SHORT).show();
-
-            if (nameInputEditText != null) nameInputEditText.setText(null);
-            if (descriptionInputEditText != null) descriptionInputEditText.setText(null);
-            if (unitsInputEditText != null) unitsInputEditText.setText(null);
-            radioGroup.clearCheck();
 
         }
         else {
             Toast.makeText(CreateExercise.this, "Unsuccessful", Toast.LENGTH_SHORT).show();
         }
-
-        //When the exercise is built take user to exercise view
-        //Intent intent = new Intent(this, viewExercise.class);
-        //intent.putExtra(exerciseID,int id);
-        //startActivity(intent);
     }
 
+    private void clearForm(){
+        if (nameInputEditText != null) nameInputEditText.setText(null);
+        if (descriptionInputEditText != null) descriptionInputEditText.setText(null);
+        if (unitsInputEditText != null) unitsInputEditText.setText(null);
+        radioGroup.clearCheck();
+    }
 
     //TODO add validation to check name is unique.
     private boolean isValid(String name, String description, RadioGroup radioGroup){
@@ -159,7 +160,10 @@ public class CreateExercise extends AppCompatActivity {
     }
 
     private boolean isValidUnit(String unit){
-
+        if (unit != null && unit.length() >= 3) {
+            return true;
+        }
+        return false;
     }
 
 }
