@@ -1,5 +1,7 @@
 package com.example.smarttrain.smarttrain;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -29,12 +31,9 @@ public class ViewExerciseList extends AppCompatActivity {
         exerciseListView = (ListView) findViewById(R.id.exerciseListView);
         exercises = new ArrayList<>(dbHelper.exerciseNameToArrayList());
 
-        String[] exNames = dbHelper.exerciseNameToArray();
-        ListAdapter adapter = new CustomExerciseViewAdapter(this, exNames);
-        exerciseListView.setAdapter(adapter);
 
+        updateView();
         loadCallBackListener();
-
 
     }
 
@@ -79,19 +78,6 @@ public class ViewExerciseList extends AppCompatActivity {
     }
 
     private void loadCallBackListener() {
-        /*exerciseListView.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        String item = String.valueOf(parent.getItemAtPosition(position));
-                        Object object = parent.getItemAtPosition(position);
-                        Log.d("ViewExerciseList", "Onclick lister item is: " + item);
-                        Toast.makeText(ViewExerciseList.this, item, Toast.LENGTH_SHORT).show();
-                        // TODO View exercise here
-                    }
-                }
-        );*/
-
         exerciseListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
@@ -99,14 +85,41 @@ public class ViewExerciseList extends AppCompatActivity {
                         long viewId = view.getId();
 
                         if (viewId == R.id.removeExButton) {
-                            Toast.makeText(ViewExerciseList.this, "Button 1 clicked", Toast.LENGTH_SHORT).show();
-                        }else if(viewId == R.id.exNameTextView){
-                            Toast.makeText(ViewExerciseList.this, "exNameTextView", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(ViewExerciseList.this, "Item removed", Toast.LENGTH_SHORT).show();
+                            String exName = String.valueOf(parent.getItemAtPosition(position));
+                            deleteConfirmPopup(exName);
+                        } else if (viewId == R.id.exNameTextView) {
+                            //Toast.makeText(ViewExerciseList.this, "exNameTextView", Toast.LENGTH_SHORT).show();
                         }
                     }
-
-
                 });
     }
 
+
+    public void updateView() {
+        String[] exNames = dbHelper.exerciseNameToArray();
+        ListAdapter adapter = new CustomExerciseViewAdapter(this, exNames);
+        exerciseListView.setAdapter(adapter);
+    }
+
+    public void deleteConfirmPopup(final String exName) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(ViewExerciseList.this);
+        alert.setTitle("Alert");
+        alert.setMessage("Would you like to delete " + exName);
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(ViewExerciseList.this, "Exercise Deleted", Toast.LENGTH_SHORT).show();
+                dbHelper.deleteExerciseByID(dbHelper.exerciseNameToID(exName));
+                updateView();
+            }
+        });
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(ViewExerciseList.this, "Item not removed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alert.show();
+
+    }
 }
+

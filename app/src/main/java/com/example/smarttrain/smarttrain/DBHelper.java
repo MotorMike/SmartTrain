@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -182,10 +183,10 @@ public class DBHelper extends SQLiteOpenHelper {
     }*/
 
 
-    //Delete an Exercise from the Exercise table
-    public void deleteExercise(String exerciseName) {
+    //Delete an Exercise from the Exercise table by id
+    public void deleteExerciseByID(int exerciseID) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_EXERCISE + " WHERE " + COLUMN_E_NAME + "=\"" + exerciseName + "\";");
+        db.execSQL("DELETE FROM " + TABLE_EXERCISE + " WHERE " + COLUMN_E_ID + "=\"" + exerciseID + "\";");
     }
 
 
@@ -255,11 +256,10 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
     public String exerciseIDtoName(int id) {
         String name = "Name not found";
         String query = "SELECT " + COLUMN_E_NAME + " FROM " + TABLE_EXERCISE +
-                " WHERE " + COLUMN_E_ID + "=" + id + ";";
+                " WHERE " + COLUMN_E_ID + " = " + id + ";";
         SQLiteDatabase db = getWritableDatabase();
         Cursor c = db.rawQuery(query, null);
 
@@ -271,6 +271,23 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         return name;
+    }
+
+    public int exerciseNameToID(String exName) {
+        int id = 0;
+        String query = "SELECT " + COLUMN_E_ID + " FROM " + TABLE_EXERCISE +
+                " WHERE " + COLUMN_E_NAME + " = \"" + exName + "\";";
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery(query, null);
+
+        if (c != null && c.getCount() > 0) {
+            c.moveToFirst();
+            do {
+                id = Integer.parseInt (c.getString(0));
+            } while (c.moveToNext());
+        }
+        Log.d("DBHelper","Exercise Name to ID ExName: " + exName + " ID: " + id);
+        return id;
     }
 
 
