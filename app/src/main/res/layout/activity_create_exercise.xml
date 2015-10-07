@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="How would you like this exercise to be tracked?"
-                android:id="@+id/textView6"
+                android:id="@+id/trackingTextView"
                 android:textSize="24sp"
                 android:gravity="center_horizontal" />
 
@@ -72,7 +72,6 @@
                     android:checked="false"
                     android:textSize="20sp"
                     android:textColor="#37474F"
-                    android:focusableInTouchMode="true"
                     android:onClick="distanceTimeButtonOnClick" />
 
                 <RadioButton

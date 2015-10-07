@@ -9,10 +9,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
-//TODO clear screen/finish activity or inform user exercise was saved, Trim input?
+
 
 public class CreateExercise extends AppCompatActivity {
 
@@ -23,6 +24,7 @@ public class CreateExercise extends AppCompatActivity {
     RadioButton setsRadio;
     RadioButton timeRadio;
     RadioGroup radioGroup;
+    TextView text;
 
 
     @Override
@@ -37,6 +39,7 @@ public class CreateExercise extends AppCompatActivity {
         setsRadio = (RadioButton) findViewById(R.id.setsRadio);
         timeRadio = (RadioButton) findViewById(R.id.timeRadio);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        text = (TextView) findViewById(R.id.trackingTextView);
     }
 
     @Override
@@ -131,7 +134,7 @@ public class CreateExercise extends AppCompatActivity {
         }
 
         if (!isValidRadio(radioGroup)) {
-            distanceRadio.setError("A tracking option must be selected.");
+            text.setError("A tracking option must be selected.");
             isValid = false;
         }
 
