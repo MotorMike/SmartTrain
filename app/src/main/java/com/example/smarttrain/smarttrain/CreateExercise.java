@@ -18,6 +18,7 @@ public class CreateExercise extends AppCompatActivity {
 
     EditText nameInputEditText;
     EditText descriptionInputEditText;
+    EditText unitsInputEditText;
     RadioButton distanceRadio;
     RadioButton setsRadio;
     RadioButton timeRadio;
@@ -31,6 +32,7 @@ public class CreateExercise extends AppCompatActivity {
 
         nameInputEditText = (EditText) findViewById(R.id.nameInputEditText) ;
         descriptionInputEditText = (EditText) findViewById(R.id.descriptionInputEditText);
+        unitsInputEditText = (EditText) findViewById(R.id.unitsInputEditText);
         distanceRadio = (RadioButton) findViewById(R.id.distanceRadio);
         setsRadio = (RadioButton) findViewById(R.id.setsRadio);
         timeRadio = (RadioButton) findViewById(R.id.timeRadio);
@@ -80,12 +82,12 @@ public class CreateExercise extends AppCompatActivity {
 
         if(isValid(eName, eDescription, radioGroup)){
             if(distanceRadio.isChecked()){
-                String eUnit = "metres";
+                String eUnit = unitsInputEditText.getText().toString();
                 LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
                 exercise.addToDataBase(this);
             }
             else if(timeRadio.isChecked()){
-                String eUnit = "seconds";
+                String eUnit = unitsInputEditText.getText().toString();
                 LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
                 exercise.addToDataBase(this);
             }
@@ -98,6 +100,7 @@ public class CreateExercise extends AppCompatActivity {
 
             if (nameInputEditText != null) nameInputEditText.setText(null);
             if (descriptionInputEditText != null) descriptionInputEditText.setText(null);
+            if (unitsInputEditText != null) unitsInputEditText.setText(null);
             radioGroup.clearCheck();
 
         }
@@ -153,6 +156,10 @@ public class CreateExercise extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    private boolean isValidUnit(String unit){
+
     }
 
 }
