@@ -8,7 +8,15 @@ import android.content.Context;
 abstract public class Exercise {
     private String name;
     private String description;
+    private String type;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public Exercise() {
         name = "";

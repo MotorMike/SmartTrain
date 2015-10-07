@@ -71,7 +71,6 @@ public class ViewExerciseList extends AppCompatActivity {
     public void xButton(View view) {
         CharSequence text = "X Button not implemented";
         ViewParent newView = view.getParent();
-
         Log.d("ViewExerciseList", newView.toString() + " X Button ID");
         Log.d("ViewExerciseList", view.getId() + " X Button ID");
         Toast.makeText(ViewExerciseList.this, text, Toast.LENGTH_LONG).show();
@@ -92,7 +91,8 @@ public class ViewExerciseList extends AppCompatActivity {
                             //Toast.makeText(ViewExerciseList.this, "exNameTextView", Toast.LENGTH_SHORT).show();
                         }
                     }
-                });
+                }
+        );
     }
 
 

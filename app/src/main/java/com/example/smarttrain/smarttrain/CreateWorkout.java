@@ -63,7 +63,6 @@ public class CreateWorkout extends Activity {
             }
         });
 
-
         exerciseListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 String exName = String.valueOf(parent.getItemAtPosition(position));
@@ -71,8 +70,6 @@ public class CreateWorkout extends Activity {
                 return false;
             }
         });
-
-
     }
 
 
@@ -84,7 +81,6 @@ public class CreateWorkout extends Activity {
     public void addExercise(View view) {
         Intent intent = new Intent(this, AddExerciseTo.class);
         startActivityForResult(intent, 2);
-
     }
 
     @Override
@@ -122,7 +118,6 @@ public class CreateWorkout extends Activity {
 
     public void exerciseView(View view, int id) {
         TextView item = (TextView) view;
-
         Toast.makeText(CreateWorkout.this, id, Toast.LENGTH_SHORT).show();
         //TODO take to exercise view
     }
