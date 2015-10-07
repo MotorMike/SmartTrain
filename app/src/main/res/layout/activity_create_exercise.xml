@@ -25,7 +25,6 @@
                 android:layout_marginTop="20dp"
                 android:hint="Name"
                 android:inputType="text"
-                android:textColor="#81C784"
                 android:textColorHint="#81C784" />
 
             <EditText
@@ -37,7 +36,6 @@
                 android:autoText="false"
                 android:hint="Short description about the exercise"
                 android:inputType="textMultiLine"
-                android:textColor="#81C784"
                 android:textColorHint="#81C784" />
 
             <View
@@ -74,7 +72,8 @@
                     android:checked="false"
                     android:textSize="20sp"
                     android:textColor="#37474F"
-                    android:focusableInTouchMode="true"/>
+                    android:focusableInTouchMode="true"
+                    android:onClick="distanceTimeButtonOnClick" />
 
                 <RadioButton
                     android:layout_width="match_parent"
@@ -83,7 +82,8 @@
                     android:id="@+id/setsRadio"
                     android:checked="false"
                     android:textSize="20sp"
-                    android:textColor="#37474F" />
+                    android:textColor="#37474F"
+                    android:onClick="setsButtonOnClick" />
 
                 <RadioButton
                     android:layout_width="match_parent"
@@ -92,14 +92,34 @@
                     android:id="@+id/timeRadio"
                     android:checked="false"
                     android:textSize="20sp"
-                    android:textColor="#37474F" />
+                    android:textColor="#37474F"
+                    android:onClick="distanceTimeButtonOnClick" />
             </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What units would you like?"
+                android:id="@+id/textView20"
+                android:layout_gravity="center_horizontal"
+                android:textSize="24sp"
+                android:layout_marginTop="25dp"
+                android:visibility="gone" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/editText"
+                android:layout_marginTop="20dp"
+                android:hint="Units"
+                android:textColorHint="#81C784"
+                android:visibility="gone" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/createExerciseButton"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="25dp"
                 android:src="@drawable/tick"
                 android:layout_gravity="center_horizontal"
                 android:background="#81C784"
