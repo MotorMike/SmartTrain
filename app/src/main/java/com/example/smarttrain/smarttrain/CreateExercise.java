@@ -1,5 +1,6 @@
 package com.example.smarttrain.smarttrain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -58,6 +59,16 @@ public class CreateExercise extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void distanceTimeButtonOnClick (View view){
+        findViewById(R.id.textView20).setVisibility(View.VISIBLE);
+        findViewById(R.id.editText).setVisibility(View.VISIBLE);
+    }
+
+    public void setsButtonOnClick (View view){
+        findViewById(R.id.textView20).setVisibility(View.GONE);
+        findViewById(R.id.editText).setVisibility(View.GONE);
+    }
+
     public void newExerciseCreateButtonOnClick (View view){
 
         String eName = nameInputEditText.getText().toString();
@@ -69,12 +80,12 @@ public class CreateExercise extends AppCompatActivity {
 
         if(isValid(eName, eDescription, radioGroup)){
             if(distanceRadio.isChecked()){
-                String eUnit = "metres"; //TODO make distance user input based
+                String eUnit = "metres";
                 LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
                 exercise.addToDataBase(this);
             }
             else if(timeRadio.isChecked()){
-                String eUnit = "seconds"; //TODO make time user input based
+                String eUnit = "seconds";
                 LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
                 exercise.addToDataBase(this);
             }
@@ -99,6 +110,7 @@ public class CreateExercise extends AppCompatActivity {
         //intent.putExtra(exerciseID,int id);
         //startActivity(intent);
     }
+
 
     //TODO add validation to check name is unique.
     private boolean isValid(String name, String description, RadioGroup radioGroup){
