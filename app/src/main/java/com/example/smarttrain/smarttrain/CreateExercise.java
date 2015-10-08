@@ -122,6 +122,8 @@ public class CreateExercise extends AppCompatActivity {
         if (descriptionInputEditText != null) descriptionInputEditText.setText(null);
         if (unitsInputEditText != null) unitsInputEditText.setText(null);
         radioGroup.clearCheck();
+        findViewById(R.id.textView20).setVisibility(View.GONE);
+        findViewById(R.id.unitsInputEditText).setVisibility(View.GONE);
     }
 
     private boolean isValid(String name, String description, RadioGroup radioGroup){
