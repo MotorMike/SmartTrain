@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     //DB
     private static final String DB_NAME = "smartTrain.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 7;
 
     //Table Exercise
     public static final String TABLE_EXERCISE = "EXERCISE";
@@ -67,6 +67,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(queryLengthExerciseTable());
         db.execSQL(queryRepetitionExerciseTable());
         db.execSQL(querySetInfoTable());
+        Log.d(TAG,"onCreate Called");
     }
 
     public void queryCheck(long result) {
@@ -82,7 +83,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String queryExercise = "CREATE TABLE " + TABLE_EXERCISE + "(" +
                 COLUMN_E_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_E_NAME + " TEXT, " +
-                COLUMN_E_DESCRIPTION + " TEXT " +
+                COLUMN_E_DESCRIPTION + " TEXT, " +
                 COLUMN_E_TYPE + " TEXT " +
                 ");";
         return queryExercise;
@@ -166,8 +167,8 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-   /* public int addSets(RepetitionExercise exercise, int id) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public int addSets(RepetitionExercise exercise, int id) {
+     /*   SQLiteDatabase db = this.getWritableDatabase();
 
         for(Set s: exercise.getSets()){
             ContentValues values = new ContentValues();
@@ -181,9 +182,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
-        db.close();
+        db.close();*/
+        int result = 0;
         return (int) result;
-    }*/
+    }
 
 
     //Delete an Exercise from the Exercise table by id
@@ -205,6 +207,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_REPETITION_EXERCISE);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETINFO);
         onCreate(db);
+        Log.d(TAG, "onUpgrade Called");
+
     }
 
     // Returns all elements in exercise table as a "\n" separated string

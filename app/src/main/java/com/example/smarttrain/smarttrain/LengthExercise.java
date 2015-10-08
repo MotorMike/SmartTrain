@@ -21,13 +21,13 @@ public class LengthExercise extends Exercise {
 
 
     LengthExercise(String name, String description, String unit) {
-        super(name, description);
+        super(name, description, "Length");
         this.unit = unit;
         this.length = 0.00;
     }
 
     LengthExercise(String name, String description, String unit, double time) {
-        super(name, description);
+        super(name, description, "Time");
         this.unit = unit;
         this.length = time;
     }

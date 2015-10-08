@@ -10,25 +10,18 @@ abstract public class Exercise {
     private String description;
     private String type;
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
+    abstract void addToDataBase(Context context);
 
     public Exercise() {
         name = "";
         description = "";
     }
 
-    public Exercise(String name, String description) {
+    public Exercise(String name, String description, String type) {
         this.name = name;
         this.description = description;
+        this.type = type;
     }
-
-    abstract void addToDataBase(Context context);
 
     public String getName() {
         return name;
@@ -46,5 +39,12 @@ abstract public class Exercise {
         this.description = description;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
 }

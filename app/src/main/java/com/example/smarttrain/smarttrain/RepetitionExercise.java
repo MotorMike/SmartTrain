@@ -1,6 +1,7 @@
 package com.example.smarttrain.smarttrain;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public class RepetitionExercise extends Exercise {
     private static final String TAG = "RepetitionExercise";
 
     RepetitionExercise(String name, String description) {
-        super(name, description);
+        super(name, description,"Repetition");
         sets = new ArrayList<Set>();
         placeCounter = 0;
     }
@@ -22,7 +23,7 @@ public class RepetitionExercise extends Exercise {
     void addToDataBase(Context context) {
         DBHelper db = new DBHelper(context);
         db.addRepetitionExercise(this);
-        System.out.println(TAG + " addToDataBase");
+        Log.d(TAG, " addToDataBase");
     }
 
     public void addSet(int repetitions, double weight) {
