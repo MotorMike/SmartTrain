@@ -13,8 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
-
 public class CreateExercise extends AppCompatActivity {
 
     EditText nameInputEditText;
@@ -107,6 +105,9 @@ public class CreateExercise extends AppCompatActivity {
             else if(setsRadio.isChecked()){
                 RepetitionExercise exercise = new RepetitionExercise(eName, eDescription);
                 exercise.addToDataBase(this);
+
+                Toast.makeText(CreateExercise.this, "Exercise Created", Toast.LENGTH_SHORT).show();
+                clearForm();
             }
 
 
@@ -123,7 +124,6 @@ public class CreateExercise extends AppCompatActivity {
         radioGroup.clearCheck();
     }
 
-    //TODO add validation to check name is unique.
     private boolean isValid(String name, String description, RadioGroup radioGroup){
         boolean isValid = true;
 
@@ -158,7 +158,7 @@ public class CreateExercise extends AppCompatActivity {
     }
 
     private boolean isValidDescription(String description){
-        if (description.length() < 240) {
+        if (description.length() <= 240) {
             return true;
         }
         return false;
