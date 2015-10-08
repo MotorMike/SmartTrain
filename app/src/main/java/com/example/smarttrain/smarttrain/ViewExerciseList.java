@@ -2,6 +2,7 @@ package com.example.smarttrain.smarttrain;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -88,11 +89,29 @@ public class ViewExerciseList extends AppCompatActivity {
                             String exName = String.valueOf(parent.getItemAtPosition(position));
                             deleteConfirmPopup(exName);
                         } else if (viewId == R.id.exNameTextView) {
-                            //Toast.makeText(ViewExerciseList.this, "exNameTextView", Toast.LENGTH_SHORT).show();
+                            String item = String.valueOf(parent.getItemAtPosition(position));
+                            viewExercise(item);
                         }
                     }
                 }
         );
+    }
+
+    public void viewExercise(String item){
+        String type = dbHelper.exerciseTypeToString(item);
+
+        if (type.equals("Repetition")) {
+            Intent intent = new Intent(ViewExerciseList.this, ViewRepetition.class);
+            intent.putExtra("ExerciseName", item);
+            startActivity(intent);
+
+        } else if (type.equals("Length")) {
+            Intent intent = new Intent(ViewExerciseList.this, ViewLength.class);
+            intent.putExtra("ExerciseName", item);
+            startActivity(intent);
+        }
+
+
     }
 
 

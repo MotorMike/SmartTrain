@@ -67,7 +67,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(queryLengthExerciseTable());
         db.execSQL(queryRepetitionExerciseTable());
         db.execSQL(querySetInfoTable());
-        Log.d(TAG,"onCreate Called");
+        Log.d(TAG, "onCreate Called");
     }
 
     public void queryCheck(long result) {
@@ -208,7 +208,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SETINFO);
         onCreate(db);
         Log.d(TAG, "onUpgrade Called");
-
+        //TODO Keep info on updates
     }
 
     // Returns all elements in exercise table as a "\n" separated string
@@ -301,9 +301,24 @@ public class DBHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    public boolean nameInExerciseTable(String name) {
 
-        return true;
+    public String exerciseTypeToString(String exName) {
+        String exType = null;
+
+        String query = "SELECT " + COLUMN_E_TYPE + " FROM " + TABLE_EXERCISE +
+                " WHERE " + COLUMN_E_NAME + " = \"" + exName + "\";";
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery(query, null);
+
+        if (c != null && c.getCount() > 0) {
+            c.moveToFirst();
+            do {
+                exType = c.getString(0);
+            } while (c.moveToNext());
+        }
+        Log.d("DBHelper", "Exercise Name to ID ExName: " + exName + " ID: " + exType);
+        return exType;
+
     }
 
 
