@@ -133,7 +133,7 @@ public class CreateExercise extends AppCompatActivity {
         }
 
         if (!isValidName(name)) {
-            nameInputEditText.setError("A name is required and must be at least 3 characters long.");
+            nameInputEditText.setError("A name is required and must be between 3 and 25 characters in length.");
             isValid = false;
         }
 
@@ -151,7 +151,7 @@ public class CreateExercise extends AppCompatActivity {
     }
 
     private boolean isValidName(String name){
-        if (name != null && name.length() >= 3) {
+        if (name != null && name.length() >= 3 && name.length() <= 25) {
             return true;
         }
         return false;
