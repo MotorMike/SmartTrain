@@ -172,7 +172,7 @@ public class CreateExercise extends AppCompatActivity {
     }
 
     private boolean isValidUnit(String unit){
-        if (unit != null && unit.length() >= 3) {
+        if (unit != null && unit.length() >= 3 && unit.length() <= 25) {
             return true;
         }
         return false;
