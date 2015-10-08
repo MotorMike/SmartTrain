@@ -26,6 +26,8 @@ public class CreateExercise extends AppCompatActivity {
     RadioGroup radioGroup;
     TextView text;
 
+    DBHelper dbHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class CreateExercise extends AppCompatActivity {
         timeRadio = (RadioButton) findViewById(R.id.timeRadio);
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         text = (TextView) findViewById(R.id.trackingTextView);
+
+        dbHelper = new DBHelper(this);
     }
 
     @Override
@@ -123,6 +127,11 @@ public class CreateExercise extends AppCompatActivity {
     private boolean isValid(String name, String description, RadioGroup radioGroup){
         boolean isValid = true;
 
+        if (!uniqueName(name)){
+            nameInputEditText.setError("An exercise with this name already exists.");
+            isValid = false;
+        }
+
         if (!isValidName(name)) {
             nameInputEditText.setError("A name is required and must be at least 3 characters long.");
             isValid = false;
@@ -167,6 +176,17 @@ public class CreateExercise extends AppCompatActivity {
             return true;
         }
         return false;
+    }
+
+    private boolean uniqueName(String name){
+        String[] exNames = dbHelper.exerciseNameToArray();
+
+        for(int i = 0; i < exNames.length; i++){
+            if(name.equals(exNames[i])){
+                return false;
+            }
+        }
+        return true;
     }
 
 }
