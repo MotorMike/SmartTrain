@@ -49,6 +49,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_S_POSITION = "PositionNumber";
     private static final String COLUMN_S_REP = "RepAmount";
     private static final String COLUMN_S_WEIGHT = "RepWeight";
+    private String descriptionByName;
 
 
     public DBHelper(Context context) {
@@ -322,4 +323,21 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
+    public String getDescriptionByName(String exName) {
+        String description = "";
+
+        String query = "SELECT " + COLUMN_E_DESCRIPTION + " FROM " + TABLE_EXERCISE +
+                " WHERE " + COLUMN_E_NAME + " = \"" + exName + "\";";
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor c = db.rawQuery(query, null);
+
+        if (c != null && c.getCount() > 0) {
+            c.moveToFirst();
+            do {
+                description = c.getString(0);
+            } while (c.moveToNext());
+        }
+        Log.d("DBHelper", "Exercise Name to description: " + exName + " Description: " + description);
+        return description;
+    }
 }

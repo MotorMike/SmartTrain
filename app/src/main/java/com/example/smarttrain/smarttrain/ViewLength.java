@@ -1,16 +1,28 @@
 package com.example.smarttrain.smarttrain;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class ViewLength extends AppCompatActivity {
+
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_length);
+
+        dbHelper = new DBHelper(this);
+        Intent i = getIntent();
+        String exName = i.getStringExtra("ExerciseName");
+        TextView exNameTextView = (TextView) findViewById(R.id.exNameTextView);
+        TextView exDescriptionTextView = (TextView) findViewById(R.id.exDescriptionTextView);
+        exNameTextView.setText(exName);
+        exDescriptionTextView.setText(dbHelper.getDescriptionByName(exName));
     }
 
     @Override

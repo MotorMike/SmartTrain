@@ -13,7 +13,7 @@ public class RepetitionExercise extends Exercise {
     int placeCounter;
     private static final String TAG = "RepetitionExercise";
 
-    RepetitionExercise(String name, String description) {
+    public RepetitionExercise(String name, String description) {
         super(name, description,"Repetition");
         sets = new ArrayList<Set>();
         placeCounter = 0;
