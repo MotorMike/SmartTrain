@@ -37,13 +37,17 @@
                 android:layout_weight="1"
                 android:text="Target Reps"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:layout_gravity="center_vertical" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/repTarEditText"
-                android:layout_weight="0.5" />
+                android:layout_weight="1"
+                android:inputType="number"
+                android:textColor="#ffffff"
+                android:layout_gravity="bottom|center_horizontal" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -51,7 +55,11 @@
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:id="@+id/repsMinusButton"
-                android:layout_weight="0.25" />
+                android:layout_weight="1"
+                android:textColor="#81C784"
+                android:background="#ffffff"
+                android:padding="5dp"
+                android:layout_margin="5dp" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -59,7 +67,11 @@
                 android:layout_height="wrap_content"
                 android:text="+"
                 android:id="@+id/repsPlusButton"
-                android:layout_weight="0.25" />
+                android:layout_weight="1"
+                android:textColor="#81C784"
+                android:background="#ffffff"
+                android:padding="5dp"
+                android:layout_margin="5dp" />
 
         </LinearLayout>
 
@@ -80,16 +92,20 @@
                 android:id="@+id/targetWeightTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="Target Weight"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/weightTarEditText"
-                android:layout_weight="0.5" />
+                android:inputType="number|numberDecimal"
+                android:textColor="#ffffff"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_weight="1" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -97,7 +113,11 @@
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:id="@+id/weightMinusButton"
-                android:layout_weight="0.25" />
+                android:textColor="#81C784"
+                android:background="#ffffff"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
 
             <Button
                 style="?android:attr/buttonStyleSmall"
@@ -105,7 +125,11 @@
                 android:layout_height="wrap_content"
                 android:text="+"
                 android:id="@+id/weightPlusButton"
-                android:layout_weight="0.25" />
+                android:textColor="#81C784"
+                android:background="#ffffff"
+                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical|right"
+                android:layout_weight="1" />
 
         </LinearLayout>
 

@@ -1,32 +1,41 @@
 package com.example.smarttrain.smarttrain;
 
-import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class CreateWorkout extends Activity {
+
+//TODO when all is deleted from planned list not showing as clear most likey the null check
+//TODO menu bar not showing
+public class CreateWorkout extends AppCompatActivity {
 
     ArrayList<String> exercisesInWorkout;
     ListView exerciseListView;
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_workout);
+
         exercisesInWorkout = new ArrayList<String>();
         exerciseListView = (ListView) findViewById(R.id.exerciseListView);
+        dbHelper = new DBHelper(this);
+        updateView();
+        loadCallBackListener();
 
-        setCallBack();
     }
 
     @Override
@@ -50,28 +59,6 @@ public class CreateWorkout extends Activity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-    private void setCallBack() {
-        final ListView exerciseListView = (ListView) findViewById(R.id.exerciseListView);
-
-        exerciseListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
-                String exName = String.valueOf(parent.getItemAtPosition(position));
-                Toast.makeText(CreateWorkout.this, exName + " Taped", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        exerciseListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                String exName = String.valueOf(parent.getItemAtPosition(position));
-                Toast.makeText(CreateWorkout.this, exName + " Hold", Toast.LENGTH_LONG).show();
-                return false;
-            }
-        });
-    }
-
 
     public void saveWorkoutOnClick(View view) {
         Toast.makeText(CreateWorkout.this, "Workout saved message", Toast.LENGTH_SHORT).show();
@@ -98,29 +85,54 @@ public class CreateWorkout extends Activity {
         updateView();
     }
 
-    private void updateView() {
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, exercisesInWorkout);
-        exerciseListView.setAdapter(arrayAdapter);
+
+    private void loadCallBackListener() {
+        exerciseListView.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        long viewId = view.getId();
+
+                        if (viewId == R.id.removeExButton) {
+                            String exName = String.valueOf(parent.getItemAtPosition(position));
+                            deleteConfirmPopup(exName);
+                        } else if (viewId == R.id.exNameTextView) {
+                            String item = String.valueOf(parent.getItemAtPosition(position));
+                            //viewExercise(item);
+                        }
+                    }
+                }
+        );
     }
 
+    public void deleteConfirmPopup(final String exName) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(CreateWorkout.this);
+        alert.setTitle("Alert");
+        alert.setMessage("Would you like to remove " + exName + " from list?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(CreateWorkout.this, "Exercise Removed", Toast.LENGTH_SHORT).show();
+                exercisesInWorkout.remove(exName);
+                updateView();
+            }
+        });
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Toast.makeText(CreateWorkout.this, "Item not removed", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alert.show();
 
-    public void xButton(View view) {
-        Toast.makeText(CreateWorkout.this, "X Button pressed", Toast.LENGTH_SHORT).show();
-        //TODO pop up, confirm and delete item picked
     }
 
-    public void exerciseView(View view) {
-        TextView item = (TextView) view;
-        String message = "Takes you exercise view";
-        Toast.makeText(CreateWorkout.this, message, Toast.LENGTH_SHORT).show();
-        //TODO take to exercise view
-    }
+    public void updateView() {
+        if (!exercisesInWorkout.isEmpty()) {
+            String[] exNames = new String[exercisesInWorkout.size()];
+            exNames = exercisesInWorkout.toArray(exNames);
 
-    public void exerciseView(View view, int id) {
-        TextView item = (TextView) view;
-        Toast.makeText(CreateWorkout.this, id, Toast.LENGTH_SHORT).show();
-        //TODO take to exercise view
+            ListAdapter adapter = new CustomExerciseViewAdapter(this, exNames);
+            exerciseListView.setAdapter(adapter);
+        }
     }
-
 
 }

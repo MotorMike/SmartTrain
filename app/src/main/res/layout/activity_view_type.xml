@@ -16,7 +16,8 @@
         android:gravity="center_vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:id="@+id/exNameTextView" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -54,11 +55,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="This exercise is measured in units."
-        android:id="@+id/textView12"
         android:textSize="24sp"
         android:layout_gravity="center_vertical"
         android:layout_below="@+id/exDescriptionTextView"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:id="@+id/unitsTextView" />
 
 </RelativeLayout>

@@ -99,18 +99,17 @@ public class ViewExerciseList extends AppCompatActivity {
 
     public void viewExercise(String item){
         String type = dbHelper.exerciseTypeToString(item);
-
+        //TODO load info into ViewType
         if (type.equals("Repetition")) {
-            Intent intent = new Intent(ViewExerciseList.this, ViewRepetition.class);
+            Intent intent = new Intent(ViewExerciseList.this, ViewType.class);
             intent.putExtra("ExerciseName", item);
             startActivity(intent);
 
         } else if (type.equals("Length")) {
-            Intent intent = new Intent(ViewExerciseList.this, ViewLength.class);
+            Intent intent = new Intent(ViewExerciseList.this, ViewType.class);
             intent.putExtra("ExerciseName", item);
             startActivity(intent);
         }
-
 
     }
 
@@ -141,4 +140,7 @@ public class ViewExerciseList extends AppCompatActivity {
 
     }
 }
+
+
+
 

@@ -1,16 +1,33 @@
 package com.example.smarttrain.smarttrain;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class ViewType extends AppCompatActivity {
+
+    DBHelper dbHelper;
+    static final String unitText = "This exercise is measured in ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_type);
+
+
+
+        dbHelper = new DBHelper(this);
+        Intent i = getIntent();
+        String exName = i.getStringExtra("ExerciseName");
+        TextView exNameTextView = (TextView) findViewById(R.id.exNameTextView);
+        TextView exDescriptionTextView = (TextView) findViewById(R.id.exDescriptionTextView);
+        exNameTextView.setText(exName);
+        exDescriptionTextView.setText(dbHelper.getDescriptionByName(exName));
+        TextView unitsTextView = (TextView) findViewById(R.id.unitsTextView);
+        unitsTextView.setText(unitText + dbHelper.exerciseTypeToString(exName));
     }
 
     @Override
