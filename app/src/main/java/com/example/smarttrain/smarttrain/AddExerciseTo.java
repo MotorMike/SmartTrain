@@ -58,19 +58,18 @@ public class AddExerciseTo extends AppCompatActivity {
     }
 
     private void loadExerciseBuilder(String item) {
-        //If item is reps do this
-        Intent intent = new Intent(AddExerciseTo.this, PlanSetExercise.class);
-        intent.putExtra("ExerciseName", item);
-        startActivityForResult(intent, 2);
+        String type = dbHelper.exerciseTypeToString(item);
 
+        if (type.equals("Repetition")) {
+            Intent intent = new Intent(AddExerciseTo.this, PlanSetExercise.class);
+            intent.putExtra("ExerciseName", item);
+            startActivityForResult(intent, 2);
 
-        /*
-        //If item is length do this
-        Intent intent = new Intent(AddExerciseTo.this, PlanLengthExercise.class);
-        intent.putExtra("ExerciseName", item);
-        startActivityForResult(intent, 2);
-        */
-
+        } else if (type.equals("Length")) {
+            Intent intent = new Intent(AddExerciseTo.this, PlanLengthExercise.class);
+            intent.putExtra("ExerciseName", item);
+            startActivityForResult(intent, 2);
+        }
     }
 
     @Override
