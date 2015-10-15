@@ -13,8 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
-
 public class CreateExercise extends AppCompatActivity {
 
     EditText nameInputEditText;
@@ -107,6 +105,9 @@ public class CreateExercise extends AppCompatActivity {
             else if(setsRadio.isChecked()){
                 RepetitionExercise exercise = new RepetitionExercise(eName, eDescription);
                 exercise.addToDataBase(this);
+
+                Toast.makeText(CreateExercise.this, "Exercise Created", Toast.LENGTH_SHORT).show();
+                clearForm();
             }
 
 
@@ -121,9 +122,10 @@ public class CreateExercise extends AppCompatActivity {
         if (descriptionInputEditText != null) descriptionInputEditText.setText(null);
         if (unitsInputEditText != null) unitsInputEditText.setText(null);
         radioGroup.clearCheck();
+        findViewById(R.id.textView20).setVisibility(View.GONE);
+        findViewById(R.id.unitsInputEditText).setVisibility(View.GONE);
     }
 
-    //TODO add validation to check name is unique.
     private boolean isValid(String name, String description, RadioGroup radioGroup){
         boolean isValid = true;
 
@@ -133,7 +135,7 @@ public class CreateExercise extends AppCompatActivity {
         }
 
         if (!isValidName(name)) {
-            nameInputEditText.setError("A name is required and must be at least 3 characters long.");
+            nameInputEditText.setError("A name is required and must be between 3 and 25 characters in length.");
             isValid = false;
         }
 
@@ -151,14 +153,14 @@ public class CreateExercise extends AppCompatActivity {
     }
 
     private boolean isValidName(String name){
-        if (name != null && name.length() >= 3) {
+        if (name != null && name.length() >= 3 && name.length() <= 25) {
             return true;
         }
         return false;
     }
 
     private boolean isValidDescription(String description){
-        if (description.length() < 240) {
+        if (description.length() <= 240) {
             return true;
         }
         return false;
@@ -172,7 +174,7 @@ public class CreateExercise extends AppCompatActivity {
     }
 
     private boolean isValidUnit(String unit){
-        if (unit != null && unit.length() >= 3) {
+        if (unit != null && unit.length() >= 3 && unit.length() <= 25) {
             return true;
         }
         return false;

@@ -13,10 +13,17 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+/**
+ * 
+ *
+ * @author     Kelsey Hyde and Mike Nicholls
+ * @version    1.0 (2015)
+ */
+
 public class AddExerciseTo extends AppCompatActivity {
 
     ListView exerciseListView;
-    ArrayList exerciess;
+    ArrayList exercises;
     DBHelper dbHelper;
 
     @Override
@@ -26,13 +33,13 @@ public class AddExerciseTo extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
         exerciseListView = (ListView) findViewById(R.id.exerciseListView);
-        exerciess = dbHelper.exerciseNameToArrayList();
+        exercises = dbHelper.exerciseNameToArrayList();
 
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_1,
-                exerciess);
+                exercises);
 
         exerciseListView.setAdapter(arrayAdapter);
 
