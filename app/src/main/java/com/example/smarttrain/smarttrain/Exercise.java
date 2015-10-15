@@ -3,7 +3,10 @@ package com.example.smarttrain.smarttrain;
 import android.content.Context;
 
 /**
- * Created by kelseyhyde on 22/08/15.
+ * This class describes a basic Exercise. It is the superclass for LengthExercise and RepetitionExercise.
+ *
+ * @author     Kelsey Hyde and Mike Nicholls
+ * @version    1.0 (2015)
  */
 abstract public class Exercise {
     private String name;
