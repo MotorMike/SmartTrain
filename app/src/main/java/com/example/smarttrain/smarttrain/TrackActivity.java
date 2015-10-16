@@ -4,7 +4,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+/**
+ * Not implemented
+ * Has UI
+ * Will be used to link as middle page linking from home screen to tracking of
+ * Exercises, Workouts, Programs, Personal goals such as weight
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class TrackActivity extends AppCompatActivity {
 
     @Override

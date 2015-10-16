@@ -6,7 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
+/**
+ * Has UI
+ * Displays basic info for all exercise types
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class ViewType extends AppCompatActivity {
 
     DBHelper dbHelper;

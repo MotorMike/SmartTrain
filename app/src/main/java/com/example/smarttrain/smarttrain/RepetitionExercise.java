@@ -6,7 +6,10 @@ import android.util.Log;
 import java.util.ArrayList;
 
 /**
- * Created by kelseyhyde on 8/09/15.
+ * Subclass of Exercise is also a container class for exercises tracked by repetition
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class RepetitionExercise extends Exercise {
     ArrayList<Set> sets;

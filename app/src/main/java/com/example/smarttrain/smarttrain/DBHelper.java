@@ -6,12 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
 import java.util.ArrayList;
 
 
 /**
- * Created by Mike on 27/08/2015.
- * This class is to add in data persistence
+ * This class is used for data storage and retrieval
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -48,8 +51,6 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String COLUMN_S_POSITION = "PositionNumber";
     private static final String COLUMN_S_REP = "RepAmount";
     private static final String COLUMN_S_WEIGHT = "RepWeight";
-    private String descriptionByName;
-
 
     public DBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -59,7 +60,10 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, DB_NAME, factory, DB_VERSION);
     }
 
-
+    /**
+     * Builds data base by calling other functions that return query's
+     * @param db
+     */
     //TODO Constraints to be made constant
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -70,6 +74,10 @@ public class DBHelper extends SQLiteOpenHelper {
         Log.d(TAG, "onCreate Called");
     }
 
+    /**
+     * Checks weather a query result was successful out puts result to system.out
+     * @param result
+     */
     public void queryCheck(long result) {
         if (result != -1) {
             System.out.println(TAG + "Query check results PASS");
@@ -122,7 +130,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return querySetInfo;
     }
 
-    //Add a new Exercise row to the Exercise table
+    /**
+     * Add a new Exercise row to the Exercise table
+     * @param exercise object
+     * @return number of row added
+     */
     public int addExerciseValues(Exercise exercise) {
         ContentValues values = new ContentValues();
         SQLiteDatabase db = this.getWritableDatabase();
@@ -340,7 +352,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return description;
     }
 
-  
+
 }
 
 

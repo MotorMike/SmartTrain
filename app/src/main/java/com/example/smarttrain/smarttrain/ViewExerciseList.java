@@ -16,7 +16,15 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
+/**
+ * Has UI
+ * Shows list of all exercises in data base
+ * Links selected Exercise to view exercise
+ * Can delete exercise from database
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class ViewExerciseList extends AppCompatActivity {
 
     ListView exerciseListView;

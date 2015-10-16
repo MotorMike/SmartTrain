@@ -7,7 +7,14 @@ import android.view.MenuItem;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
+/**
+ * Not implemented
+ * Has UI
+ * Displays users goal for sets exercise and allows users to enter what was reached
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class TrackExerciseSets extends AppCompatActivity {
 
     @Override

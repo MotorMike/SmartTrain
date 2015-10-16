@@ -3,7 +3,10 @@ package com.example.smarttrain.smarttrain;
 import android.content.Context;
 
 /**
- * Created by kelseyhyde on 8/09/15.
+ * Subclass of Exercise is also a container class for exercises tracked by length
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class LengthExercise extends Exercise {
     private static final String TAG = "LengthExercise";

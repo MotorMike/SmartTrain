@@ -7,7 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-
+/**
+ * Builds length exercises with goals included
+ * Has UI
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class PlanLengthExercise extends AppCompatActivity {
 
     @Override

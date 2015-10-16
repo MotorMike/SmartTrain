@@ -11,7 +11,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by Mike on 28/09/2015.
+ * This is the used for setting up the custom view set builder
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 class CustomSetBuildAdapter extends ArrayAdapter<Set> {
 

@@ -1,7 +1,10 @@
 package com.example.smarttrain.smarttrain;
 
 /**
- * Created by kelseyhyde on 10/09/15.
+ * Individual container class for repetition exercise
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class Set {
     int place;

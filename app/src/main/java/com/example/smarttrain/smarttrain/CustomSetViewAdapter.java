@@ -10,7 +10,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by Mike on 13/09/2015.
+ * This class is used for setting up the viewing of sets for an exercise
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 class CustomSetViewAdapter extends ArrayAdapter<Set> {
 

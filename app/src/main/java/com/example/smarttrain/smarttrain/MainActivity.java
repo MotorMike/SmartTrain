@@ -7,7 +7,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
+/**
+ * This would be considered the main class in a java only program
+ * used to display a UI and link to other pages
+ * Will later be used for background notifications
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class MainActivity extends AppCompatActivity {
 
 

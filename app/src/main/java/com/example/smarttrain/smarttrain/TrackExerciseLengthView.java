@@ -9,7 +9,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/**
+ * Not implemented
+ * Has UI
+ * Displays users goal for length exercise and allows users to enter what was reached
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class TrackExerciseLengthView extends AppCompatActivity {
 
     Exercise exercise;

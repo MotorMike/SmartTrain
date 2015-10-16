@@ -1,6 +1,5 @@
 package com.example.smarttrain.smarttrain;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -12,7 +11,12 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+/**
+ * This class validates and creates exercises using an Android interface
+ *
+ * @author     Kelsey Hyde and Mike Nicholls
+ * @version    1.0 (2015)
+ */
 public class CreateExercise extends AppCompatActivity {
 
     EditText nameInputEditText;

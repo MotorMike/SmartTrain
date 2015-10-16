@@ -7,6 +7,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+/**
+ * This class is used to navigate to building or editing of
+ * Exercises Workouts and Programs
+ *
+ * @author     Kelsey Hyde and Mike Nicholls
+ * @version    1.0 (2015)
+ */
 public class CreateActivity extends AppCompatActivity {
 
     @Override

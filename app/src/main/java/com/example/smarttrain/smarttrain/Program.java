@@ -3,7 +3,10 @@ package com.example.smarttrain.smarttrain;
 import java.util.HashMap;
 
 /**
- * Created by kelseyhyde on 22/08/15.
+ * Takes Workouts as args stores ties them to days of the week
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class Program {
     String name;

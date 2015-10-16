@@ -10,7 +10,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
+/**
+ * Builds sets exercises with goals included
+ * Has UI
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class PlanSetExercise extends AppCompatActivity {
 
 

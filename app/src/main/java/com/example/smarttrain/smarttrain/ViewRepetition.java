@@ -6,7 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
+/**
+ * Has UI
+ * Displays basic info for repetition based exercise
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class ViewRepetition extends AppCompatActivity {
     DBHelper dbHelper;
 

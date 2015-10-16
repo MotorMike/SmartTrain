@@ -4,7 +4,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+/**
+ * Not Implement
+ * Has UI
+ * Will be used for users settings
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
+ */
 public class SettingsActivity extends AppCompatActivity {
 
     @Override
