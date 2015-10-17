@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 /**
  * Not implemented
  * Has UI
@@ -58,7 +59,7 @@ public class TrackExerciseLengthView extends AppCompatActivity {
 
     public void confirmButtonOnClick(View view) {
         //TODO take info and save
-        EditText inputEditText = (EditText)findViewById(R.id.inputEditText);
+        EditText inputEditText = (EditText) findViewById(R.id.inputEditText);
         //TODO input validation
         //lengthExercise.track(inputEditText.getText(), DateStamp);
 
@@ -68,13 +69,9 @@ public class TrackExerciseLengthView extends AppCompatActivity {
         //TODO Return to last page
     }
 
-
-    //Get exercise from data base
-    public void loadExercise() {
-        displayExercise();
-    }
-
-    //
+    /**
+     * Alters the UI to show information related to exercise
+     */
     public void displayExercise() {
 
         TextView valueTextView = (TextView) findViewById(R.id.valueTextView);

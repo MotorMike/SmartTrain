@@ -14,8 +14,8 @@ import android.widget.TextView;
  * This is the middle setting up the exercise view for building a workout
  * Takes exerciseID and returns the name in a custom view
  *
- * @author     Kelsey Hyde and Mike Nicholls
- * @version    1.0 (2015)
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 class CustomExerciseViewAdapter extends ArrayAdapter<String> {
 
@@ -52,15 +52,8 @@ class CustomExerciseViewAdapter extends ArrayAdapter<String> {
         });
 
 
-
-
-
-
-
         return customView;
     }
-
-
 
 
 }

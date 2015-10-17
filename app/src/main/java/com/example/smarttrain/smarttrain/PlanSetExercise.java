@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
 /**
  * Builds sets exercises with goals included
  * Has UI
@@ -49,9 +50,6 @@ public class PlanSetExercise extends AppCompatActivity {
 
 
     public void addSetOnclick(View view) {
-        //View nextSet = getLayoutInflater().inflate(R.layout.custom_view_set_builder, null);
-        //plannedSetsListView.addView(nextSet);
-        //Toast.makeText(PlanSetExercise.this, "addSetOnclick worked", Toast.LENGTH_LONG).show();
         repetitionExercise.addSet(0, 0.00);
         updateView();
     }

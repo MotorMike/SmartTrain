@@ -62,6 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     /**
      * Builds data base by calling other functions that return query's
+     *
      * @param db
      */
     //TODO Constraints to be made constant
@@ -76,6 +77,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     /**
      * Checks weather a query result was successful out puts result to system.out
+     *
      * @param result
      */
     public void queryCheck(long result) {
@@ -132,6 +134,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     /**
      * Add a new Exercise row to the Exercise table
+     *
      * @param exercise object
      * @return number of row added
      */
@@ -149,6 +152,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return (int) result;
     }
 
+    /**
+     * Adds new row to length exercise table
+     *
+     * @param exercise
+     */
     public void addLengthExercise(LengthExercise exercise) {
         int id = addExerciseValues(exercise);
 
@@ -163,6 +171,11 @@ public class DBHelper extends SQLiteOpenHelper {
         System.out.println("Result addLengthExercise" + result);
     }
 
+    /**
+     * Adds new row to Repetition exercise table
+     *
+     * @param e exercise of type Repetition
+     */
     public void addRepetitionExercise(RepetitionExercise e) {
 
         int id = addExerciseValues(e);
@@ -178,7 +191,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-
+    /**
+     * Not implemented
+     * Adds sets row and links it to exercise
+     *
+     * @param exercise this is the exercise that has sets
+     * @param id       this is the to be the exercise ID
+     * @return retuns result from sqlite
+     */
     public int addSets(RepetitionExercise exercise, int id) {
      /*   SQLiteDatabase db = this.getWritableDatabase();
 
@@ -191,9 +211,6 @@ public class DBHelper extends SQLiteOpenHelper {
             long result = db.insert(TABLE_SETINFO, null, values);
             db.close();
         }
-
-
-
         db.close();*/
         int result = 0;
         return (int) result;
@@ -211,7 +228,13 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    // Drop tables and recreate on upgrade
+    /**
+     * Drop tables and recreate on upgrade
+     *
+     * @param db
+     * @param oldVersion data base version
+     * @param newVersion data base version
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_EXERCISE);
@@ -223,7 +246,12 @@ public class DBHelper extends SQLiteOpenHelper {
         //TODO Keep info on updates
     }
 
-    // Returns all elements in exercise table as a "\n" separated string
+
+    /**
+     * Returns all elements in exercise table as a "\n" separated string
+     *
+     * @return "\n" separated string
+     */
     public String exerciseTableNameToString() {
         String dbString = "";
         SQLiteDatabase db = getWritableDatabase();
@@ -246,7 +274,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return dbString;
     }
 
-    // Returns all names in exercise table an ArrayList<String>
+
+    /**
+     * Returns all names in exercise table an
+     *
+     * @return ArrayList<String>
+     */
     public ArrayList<String> exerciseNameToArrayList() {
 
         ArrayList<String> nameArray = new ArrayList<>();
@@ -265,7 +298,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return nameArray;
     }
 
-    // Returns all names in exercise table an ArrayList<String>
+
+    /**
+     * Returns all names in exercise table an ArrayList<String>
+     *
+     * @return String[] of exercise names
+     */
     public String[] exerciseNameToArray() {
 
         ArrayList<String> list = exerciseNameToArrayList();
@@ -278,7 +316,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return nameArray;
     }
 
-
+    /**
+     * Takes exercise ID finds the name in database
+     *
+     * @param id
+     * @return String name of exercise
+     */
     public String exerciseIDtoName(int id) {
         String name = "Name not found";
         String query = "SELECT " + COLUMN_E_NAME + " FROM " + TABLE_EXERCISE +
@@ -296,6 +339,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return name;
     }
 
+    /**
+     * Takes exercise name finds the ID in database
+     *
+     * @param exName
+     * @return exercise ID as int
+     */
     public int exerciseNameToID(String exName) {
         int id = 0;
         String query = "SELECT " + COLUMN_E_ID + " FROM " + TABLE_EXERCISE +
@@ -313,7 +362,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return id;
     }
 
-
+    /**
+     * Finds exercise type by name
+     *
+     * @param exName
+     * @return exercise type as String
+     */
     public String exerciseTypeToString(String exName) {
         String exType = null;
 
@@ -333,7 +387,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-
+    /**
+     * Finds exercise description by exercise name
+     *
+     * @param exName
+     * @return description as String
+     */
     public String getDescriptionByName(String exName) {
         String description = "";
 

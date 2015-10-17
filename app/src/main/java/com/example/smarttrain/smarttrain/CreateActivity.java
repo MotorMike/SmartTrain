@@ -11,8 +11,8 @@ import android.view.View;
  * This class is used to navigate to building or editing of
  * Exercises Workouts and Programs
  *
- * @author     Kelsey Hyde and Mike Nicholls
- * @version    1.0 (2015)
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class CreateActivity extends AppCompatActivity {
 
@@ -44,19 +44,19 @@ public class CreateActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void exerciseButtonOnClick(View view){
+    public void exerciseButtonOnClick(View view) {
         Intent intentExercise = new Intent(getBaseContext(), CreateExercise.class);
         startActivity(intentExercise);
 
     }
 
-    public void exerciseViewOnClick(View view){
+    public void exerciseViewOnClick(View view) {
         Intent intentExercise = new Intent(getBaseContext(), ViewExerciseList.class);
         startActivity(intentExercise);
 
     }
 
-    public void workoutCreateOnClick(View view){
+    public void workoutCreateOnClick(View view) {
         Intent intentExercise = new Intent(getBaseContext(), CreateWorkout.class);
         startActivity(intentExercise);
     }

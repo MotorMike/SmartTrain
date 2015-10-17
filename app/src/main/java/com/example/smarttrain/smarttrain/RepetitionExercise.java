@@ -17,7 +17,7 @@ public class RepetitionExercise extends Exercise {
     private static final String TAG = "RepetitionExercise";
 
     public RepetitionExercise(String name, String description) {
-        super(name, description,"Repetition");
+        super(name, description, "Repetition");
         sets = new ArrayList<Set>();
         placeCounter = 0;
     }

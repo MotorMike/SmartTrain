@@ -23,12 +23,6 @@ class CustomSetBuildAdapter extends ArrayAdapter<Set> {
     LayoutInflater thisInflater;
     int counter = 0;
 
-
-    /*public CustomSetBuildAdapter(Context context, ArrayList<Set> list) {
-        super(context, R.layout.custom_view_set_builder, list);
-
-    }*/
-
     public CustomSetBuildAdapter(Context c, ArrayList al) {
         super(c, R.layout.custom_view_set_builder, al);
         ctxt = c;
@@ -36,11 +30,6 @@ class CustomSetBuildAdapter extends ArrayAdapter<Set> {
         thisInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
-
-   /* public CustomSetBuildAdapter(Context context, List<Set> objects) {
-        super(context, resource, objects);
-    }*/
-
 
     @Override
     public int getCount() {

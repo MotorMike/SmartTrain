@@ -14,10 +14,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 /**
- * 
+ * Displays all exercises by name in list view
+ * Has UI
  *
- * @author     Kelsey Hyde and Mike Nicholls
- * @version    1.0 (2015)
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 
 public class AddExerciseTo extends AppCompatActivity {
@@ -57,6 +58,12 @@ public class AddExerciseTo extends AppCompatActivity {
         );
     }
 
+    /**
+     * Identifies the exercise given and opens corresponding page
+     * for paling the exercise
+     *
+     * @param item
+     */
     private void loadExerciseBuilder(String item) {
         String type = dbHelper.exerciseTypeToString(item);
 
@@ -86,8 +93,6 @@ public class AddExerciseTo extends AppCompatActivity {
                 finish();
             }
         }
-
-
     }
 
 

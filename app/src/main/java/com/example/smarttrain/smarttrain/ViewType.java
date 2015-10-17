@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
 /**
  * Has UI
  * Displays basic info for all exercise types
@@ -22,8 +23,6 @@ public class ViewType extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_type);
-
-
 
         dbHelper = new DBHelper(this);
         Intent i = getIntent();

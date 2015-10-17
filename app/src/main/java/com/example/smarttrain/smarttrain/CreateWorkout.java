@@ -20,8 +20,8 @@ import java.util.ArrayList;
  * This class validates and creates workouts using an Android interface
  * allows for exercises to be added to the workout
  *
- * @author     Kelsey Hyde and Mike Nicholls
- * @version    1.0 (2015)
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 //TODO when all is deleted from planned list not showing as clear most likey the null check
 //TODO menu bar not showing
@@ -92,6 +92,9 @@ public class CreateWorkout extends AppCompatActivity {
     }
 
 
+    /**
+     * custom listener to listen to custom adaptor
+     */
     private void loadCallBackListener() {
         exerciseListView.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
@@ -111,6 +114,11 @@ public class CreateWorkout extends AppCompatActivity {
         );
     }
 
+    /**
+     * Confirms with user if they meant to deleted that exercise then calls delete foo if yes
+     *
+     * @param exName
+     */
     public void deleteConfirmPopup(final String exName) {
         AlertDialog.Builder alert = new AlertDialog.Builder(CreateWorkout.this);
         alert.setTitle("Alert");
@@ -131,6 +139,9 @@ public class CreateWorkout extends AppCompatActivity {
 
     }
 
+    /**
+     * Updates list view with any changes made
+     */
     public void updateView() {
         if (!exercisesInWorkout.isEmpty()) {
             String[] exNames = new String[exercisesInWorkout.size()];

@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
 /**
  * Has UI
  * Shows list of all exercises in data base
@@ -105,7 +106,11 @@ public class ViewExerciseList extends AppCompatActivity {
         );
     }
 
-    public void viewExercise(String item){
+    /**
+     * Checks database for type of exercise then calls view on exercise to match
+     * @param item
+     */
+    public void viewExercise(String item) {
         String type = dbHelper.exerciseTypeToString(item);
         //TODO load info into ViewType
         if (type.equals("Repetition")) {

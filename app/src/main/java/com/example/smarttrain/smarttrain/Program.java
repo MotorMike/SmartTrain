@@ -13,14 +13,14 @@ public class Program {
     String description;
     HashMap<String, Workout> map;
 
-    public Program(String name, String description){
+    public Program(String name, String description) {
         this.name = name;
         this.description = description;
         map = new HashMap<String, Workout>();
         fillDefaultMap();
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -36,28 +36,32 @@ public class Program {
         return description;
     }
 
-    public boolean addWorkout(String key, Workout workout){
-        if (map.containsKey(key)){
+    /**
+     * Matches workout to day
+     * @param key
+     * @param workout
+     * @return
+     */
+    public boolean addWorkout(String key, Workout workout) {
+        if (map.containsKey(key)) {
             map.put(key, workout);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
-    public boolean removeWorkout(String key){
-        if (map.containsKey(key)){
+    public boolean removeWorkout(String key) {
+        if (map.containsKey(key)) {
             map.remove(key);
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
 
 
-    private void fillDefaultMap(){
+    private void fillDefaultMap() {
         map.put("Monday", null);
         map.put("Tuesday", null);
         map.put("Wednesday", null);

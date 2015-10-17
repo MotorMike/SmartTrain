@@ -14,8 +14,8 @@ import android.widget.Toast;
 /**
  * This class validates and creates exercises using an Android interface
  *
- * @author     Kelsey Hyde and Mike Nicholls
- * @version    1.0 (2015)
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class CreateExercise extends AppCompatActivity {
 
@@ -36,7 +36,7 @@ public class CreateExercise extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_exercise);
 
-        nameInputEditText = (EditText) findViewById(R.id.nameInputEditText) ;
+        nameInputEditText = (EditText) findViewById(R.id.nameInputEditText);
         descriptionInputEditText = (EditText) findViewById(R.id.descriptionInputEditText);
         unitsInputEditText = (EditText) findViewById(R.id.unitsInputEditText);
         distanceRadio = (RadioButton) findViewById(R.id.distanceRadio);
@@ -70,17 +70,22 @@ public class CreateExercise extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void distanceTimeButtonOnClick (View view){
+    public void distanceTimeButtonOnClick(View view) {
         findViewById(R.id.textView20).setVisibility(View.VISIBLE);
         findViewById(R.id.unitsInputEditText).setVisibility(View.VISIBLE);
     }
 
-    public void setsButtonOnClick (View view){
+    public void setsButtonOnClick(View view) {
         findViewById(R.id.textView20).setVisibility(View.GONE);
         findViewById(R.id.unitsInputEditText).setVisibility(View.GONE);
     }
 
-    public void newExerciseCreateButtonOnClick (View view){
+    /**
+     * Validates inputs then sends to DBHelper to be saved
+     *
+     * @param view button
+     */
+    public void newExerciseCreateButtonOnClick(View view) {
 
         String eName = nameInputEditText.getText().toString();
         String eDescription = descriptionInputEditText.getText().toString();
@@ -90,23 +95,21 @@ public class CreateExercise extends AppCompatActivity {
         distanceRadio.setError(null);
 
 
-        if(isValid(eName, eDescription, radioGroup)){
-            if(distanceRadio.isChecked() || timeRadio.isChecked()){
+        if (isValid(eName, eDescription, radioGroup)) {
+            if (distanceRadio.isChecked() || timeRadio.isChecked()) {
                 String eUnit = unitsInputEditText.getText().toString();
-                if(isValidUnit(eUnit)){
+                if (isValidUnit(eUnit)) {
                     LengthExercise exercise = new LengthExercise(eName, eDescription, eUnit);
                     exercise.addToDataBase(this);
 
                     Toast.makeText(CreateExercise.this, "Exercise Created", Toast.LENGTH_SHORT).show();
                     clearForm();
-                }
-                else{
+                } else {
                     unitsInputEditText.setError("A unit is required and must be at least 3 characters long.");
                     Toast.makeText(CreateExercise.this, "Unsuccessful", Toast.LENGTH_SHORT).show();
                 }
 
-            }
-            else if(setsRadio.isChecked()){
+            } else if (setsRadio.isChecked()) {
                 RepetitionExercise exercise = new RepetitionExercise(eName, eDescription);
                 exercise.addToDataBase(this);
 
@@ -115,13 +118,15 @@ public class CreateExercise extends AppCompatActivity {
             }
 
 
-        }
-        else {
+        } else {
             Toast.makeText(CreateExercise.this, "Unsuccessful", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void clearForm(){
+    /**
+     * Clears UI screen inputs
+     */
+    private void clearForm() {
         if (nameInputEditText != null) nameInputEditText.setText(null);
         if (descriptionInputEditText != null) descriptionInputEditText.setText(null);
         if (unitsInputEditText != null) unitsInputEditText.setText(null);
@@ -130,10 +135,10 @@ public class CreateExercise extends AppCompatActivity {
         findViewById(R.id.unitsInputEditText).setVisibility(View.GONE);
     }
 
-    private boolean isValid(String name, String description, RadioGroup radioGroup){
+    private boolean isValid(String name, String description, RadioGroup radioGroup) {
         boolean isValid = true;
 
-        if (!uniqueName(name)){
+        if (!uniqueName(name)) {
             nameInputEditText.setError("An exercise with this name already exists.");
             isValid = false;
         }
@@ -156,39 +161,39 @@ public class CreateExercise extends AppCompatActivity {
         return isValid;
     }
 
-    private boolean isValidName(String name){
+    private boolean isValidName(String name) {
         if (name != null && name.length() >= 3 && name.length() <= 25) {
             return true;
         }
         return false;
     }
 
-    private boolean isValidDescription(String description){
+    private boolean isValidDescription(String description) {
         if (description.length() <= 240) {
             return true;
         }
         return false;
     }
 
-    private boolean isValidRadio(RadioGroup radioGroup){
+    private boolean isValidRadio(RadioGroup radioGroup) {
         if (!(radioGroup.getCheckedRadioButtonId() == -1)) {
             return true;
         }
         return false;
     }
 
-    private boolean isValidUnit(String unit){
+    private boolean isValidUnit(String unit) {
         if (unit != null && unit.length() >= 3 && unit.length() <= 25) {
             return true;
         }
         return false;
     }
 
-    private boolean uniqueName(String name){
+    private boolean uniqueName(String name) {
         String[] exNames = dbHelper.exerciseNameToArray();
 
-        for(int i = 0; i < exNames.length; i++){
-            if(name.equals(exNames[i])){
+        for (int i = 0; i < exNames.length; i++) {
+            if (name.equals(exNames[i])) {
                 return false;
             }
         }
