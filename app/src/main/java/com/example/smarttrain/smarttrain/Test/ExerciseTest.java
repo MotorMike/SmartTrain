@@ -1,12 +1,13 @@
 package com.example.smarttrain.smarttrain.Test;
 
-import com.example.smarttrain.smarttrain.Exercise;
-
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by Mike on 8/10/2015.
+ * Testing for Exercise class
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class ExerciseTest {
     @Before

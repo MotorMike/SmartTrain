@@ -4,7 +4,10 @@ import com.example.smarttrain.smarttrain.DBHelper;
 import com.example.smarttrain.smarttrain.Exercise;
 
 /**
- * Created by Mike on 28/08/2015.
+ * Helper method for ExerciseTest.class
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class ExerciseHelepertest {
     public static void main(String[] args) {

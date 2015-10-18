@@ -7,7 +7,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by Mike on 8/10/2015.
+ * Testing for RepetitionExercise
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class RepetitionExerciseTest {
 

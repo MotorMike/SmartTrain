@@ -10,7 +10,10 @@ import org.junit.Test;
 
 
 /**
- * Created by Mike on 22/09/2015.
+ * Test for checking DBHelper.class
+ *
+ * @author Kelsey Hyde and Mike Nicholls
+ * @version 1.0 (2015)
  */
 public class DBHelperTest extends TestCase {
 
